@@ -1,0 +1,511 @@
+﻿;////////雷電模擬器///////////
+LdPlayerLogo := "|<>*102$21.zkTzk0Tw01z007k00Q0s1UTkA7b00ts0C/U1kQ0DbU1xs4DS0zzU8A031U0MA071U1sA0zU"
+NoxPlayerLogo := "|<>*69$30.kS3VkUA1UUbbsw7DbwyDDbySDDrySTDnySDDnwyDDtsw7Ds1UUDy7XsU"
+Emulator_Wifi := "|<>*153$25.zs3zz007y000w000400000000U000s000w000T000Tk00Tw00Tz00TzU0Tzs0Dzy0DzzUDzzsDzzyDzzz7zzzrzw"
+
+global LdPlayerLogo, NoxPlayerLogo, LDDesktop
+
+;///////一些按鈕/////////
+
+MainPage_Btn_WeighAnchor := "|<>*198$51.77gtXnCCAwxrgwxttbbyzrDrDCQvqytzttnnwbrDz0DCLaytzttstyzrDbDDDDrytxttxtwznbbDDjTXASzlsU"
+
+BTN_Cancel := "|<>*204$71.000Tzzzw6C31kwDzbzzsAA63VsTy7zzkk8AT3kzs7zzvMEFy7Vbk7zzykUbwD3zkTz3tn1Ls07T1zz1oS37kwCy3zy38003VsRw7zy2ETs73ktsDzw8UzsS7Vnkzzyn1zkwD3r1zzz63zVs07a3zzyA003kwDADzzws007VsS8TzzlkTwD3ky0zzz3UzsS7Vw3zzyD1zkwD0M7zzsS3z1s03sTzz0w00200DkTzzVsDy400T0Tzz3kTwA0kw0Tzy3UzsMDVsUDzw71zktz3XUDzsC3s1zy7D0TzkQ7w3"
+
+MainPage_Home := "|<>*138$29.zs0zzzUUzzy7kzzsTkzz1zkTw7zkTkzzsT3zzkQ7zzs8Dz0k0Ty1U8zy74lzzyDXzzwT7k3syC03lwQ07XssyD7llwSDXXswT77lsyCDXlwQT7XssyD7k000D"
+
+MainPage_Return := "|<>*150$23.zszzzXzzyDzzszzzXzzyDzzszzzXzzy7zzs0008000Mzzzszzzszzzszzzszzzszzzszzzszz"
+
+
+global MainPage_Btn_WeighAnchor
+
+;//////////學院//////////////
+
+WaitingforAcademy := "|<>*215$29.kT1y3UA0k701k0C0Ha0Q1UC0s10M1k20k3UA0U73zzwA0000M000000000000031zzyDk003zU007zUy0Tzzw1zzzs7z010Bw000000000Tzw3zzk0DzzU0zz" ;"學院" / 後宅 選單
+
+AcademyDoneIco := "|<>*180$5.zCAMlX6AMvz6Azk" ;左邊驚嘆號
+
+AcademyDoneIco2 := "|<>*182$5.zaAMlX6AMvz6ATk"
+
+AcademyPage_Academy := "|<>*141$26.k420w10U70001ksFkQ0A070E81kw3kQ000707Y1U000M00020000Vzzs80003k007w001zzw1w0000000000003zw7zzz3zzw0zzz0Dzzk7zs" ;左上方學院
+
+AcademyPage_Shop := "|<>*144$21.zzbwDw7lzUSDwFyz27XsTw3WTW01sFWD0Alt1WC201U1WA0AlF1aCC01llWCCAlllaCCAVllaCCAnU" ;補給
+AcademyPage_into_Shop := "|<>*150$53.kzklz3z1zlzVXy7w3zXU01sDs3zz003kzU7k2007Vz07U7sTy4A470DkTsEEQ7sE01k11w7VU03U200D30070A01S04ADkS03s000T0TzzU000w4Tzz0k01k0U0A0V13U100M02670200k044DD4DVsE00SGMT3ks00wUEy7VkUVl4VwD3V33W93sS72074G00wC40C8Y01sQ80wF807szzzzzzzz" ;等待進入商店
+
+Shop_exchange := "|<>*183$71.z0z3zzzUy00Tw3z3zzz1QD1zkTz0zzy0Ey7z1zy0DzU03sny3zw0Dz003l1s3zs0zzkQ003U7zk3zzUk/wCMDzU7zz1UE8TkTz1zzy3kU0zUzy3zzw0141z1zw7zzs70M3y3zsDzy0S0k7w7zkTzw0w1UDs000zzs1s08Tk1U3zzk3kUkDm31zzzo711UDw63zzzs8000TsQ7zzzkTw3zzUsDvzzUzkLzz1kTrzz1zVXzw7UzDzy3z33zsT1yDzw7wD0zVy00DzUDkz0S7w00TzUT3y1kTs01zz1wTy7"
+
+Shop_Confirm := "|<>*184$70.00L1tzzvzUzbkz873zzjy3wC3sUk7zw0000sD27kzz1zzz3VsMD7zs7zzwC7V2BzzUTzz1sTAMTzy3zzsDXzlVDzsDzz0wCy68Dzl0003kls00zzzz1zz033Vzzzzw7zwAAC7zzzzkTzkkUsHzzwD1xy303U7zzkA7XsAA00Tzz1kQ3UkksTzzw700A333Vzzzkw7zoAAC4zzz3kTzkkksFzzsD1zz33307zzUQ7zwAAA7zzy0kTzkkksTzzkk1zz033Vzzz7U00AAAC6DzwS000knkkETzXw002"
+
+StartLesson := "|<>*176$66.kQ63UTkzw3zkS63kzkzw7zkQ63kzkzsDzkQ63UzUnsQzkQ63UzUVkyDkS63kz00ly7kQ63kzVUXz3kQ63Uz1U7y1kQC3Uz3U001kSTzkz3V03VkTzlkz310TVkTzUky33bznkM01ky73jzTkS67ky73by7kS67ky63Uw3kS65ky67Uw3kS60kz07Vy7kQ400zUDVy7kQ47UzsDVy7kSC7kzs3Vy7kSC7kzs1Vy7kQC7kzs0Vy7kQS7Uzl0Vy7kQy60zXUUw7kNy70z7lU07U"
+
+Academy_BTN_Confirm := "|<>*184$71.00L1tzzvzUzbsTY3Vzzrz1y7Uy8D1zz000071sEy7zsDzzsC7VUwTzUTzzkQD24Pzz0zzy3sTAMTzy3zzsDlzslbzw7zzUT3jXW3zwE000y6D007zzzsDzw0AC7zzzzkTzsMMQDzzzzUzzkkUsHzzwD1xz1U1k3zzs63ly33007zzkQ70w6673zzzUs01kAAC7zzz3kTzcMMQ/zzy7UzzkkksFzzsD1zzVVVU3zzkC3zz3331zzzUA7zy6673zzy60Dzw0AC7zzwS000MMMQATzsw000knkkETzXw003"
+
+Academy_In_Academy := "|<>*154$54.zzy8zkkzzU828Tkk01U02ATUk01W1WAT1k21U06AS303zUM00C703zws80CC03zk000DkEM1k067zUkM0l366DVkM0l264D1kS3k064C3UC3k060S3UC3l360S3UC3l260z3063k060z3063k0D1z2063z3z3z20q3U073z2Eq3U023z2Ey3U003D2ky3z3wUD3kw7z3xkDXks7z3zsTXksDzzzzzzzzzU"
+
+
+KeepLearing :="|<>*168$70.xzSTxznzyTTzbBvzb00D1V0yQb/yQ01wy7nnmYjvznzkHMD90VzAU0T1xUtYrbtbzzyy7nYmIbaE07s8EA300Q3AnTbAxkQxxkQnBs001sk07tE07U007900TBzzyTzyNYnbtm03tU0N0HSz0807a01Y5/GQ4U0TzyDzo23zyTtzzXzeHDTdM07zwTyZ9PSZbyQ000+I11uG01zzDzdGkrh80Dzwzwr00ArlkzznznQ00nQDkzsDzzzzzzrzrzVzy"
+
+Item_OuterEqBox:="|<>*110$70.vxzrTziyzvrTbnw00SvvziQyTDwWQtD7yU0kAzn9nUU3nXDCHy8UDnnzSQxvDueQkDjt00bgTW8HYwT77wAkzPXCu0QQDS78w2Qndzw01wQnYM3AXzkQrtnw0kS00DQ0TDDt7/z4txnBwwzUAjksDrArbnyFqyLlzQ0MzDs2Pz9XxrB7wzU3XsDXrRbzzzzzzzzzxzs"
+
+supply := "|<>*130$40.w0zzw1zU7zzs3w0zzzk7U7zzzUA0zyTz0E7zkzy0Uzy1zw77zk3zsyzy07zrzzk0Dzzzy00Tzzzk00zzzz0M3zzzy3kzzyzwTXzbVzvzTwC3zyTzUE7zkzy0UDy1zU70Tk3y0y0y07k7s1k0A0zk3U1k7zU70C0zz0C1k7y"
+
+theBox_T4 := "|<>*143$32.w3z4Dz0zk3zkDw0zM3zkDq0zz1xkTzqTC3zw7lszz3w7bzsz0Tzzjk1kzzw003zz000Dzk000zw0003z0000Dk0000w0000300000E0000000000000008"
+
+theCube2 := "|<>*199$71.zzUQ000zUzzzzzk0000TUzzzzzw0000x1zzzzzw0000Rlzzzyzs0000PXzzzzjU0000b7zzzzz00002Dbzzzzy00000Tfzzzww00003zDzzzts00001yTzzzhU00007wzzzz+00000DtzzzyQ000007Hzzzys00000Cbzzzxs00000TDzzzvk00000yzzzznU00001zzzzzb000001zzzzzC000000TzvzuQ000000DzrzyM0000007zZzws0000003y/zss0000001wTzcs0000000MrzN000000003"
+
+ClassRoomDone := "|<>*173$6.zVVVVVVVVVnzzlVzU"
+ClassRoomLvUp := "|<>*198$29.zw33zzU27zw1wDz0DsTtwTkzzszVzzlz3zzXy7zz7wDzyDsTzwTktzszVV00001z1y7zy7wDzwDsTzsTkzzkzVzzXz3zy7y7zwDwDzszsTzVzkzz7zVzwTz3z"
+ClassRoomEnd := "|<>*201$28.zz7zTzwTwE0000zy777zwTzzzlzztz7wzU001yDly7sz7szXwTXyDlyDsz7szXwTXy000Dsw3szXkLrzy1Dzzk6Tzy4QTzklkzyD7UzlwTUyDlz0Xz7y2"
+ClassRoomEndConfirm :="|<>*186$31.xzkTVw0000MDzzs07zzw43zzsC3zzsD1zzs7l0003zzsDzzzw7zzzy3zzwD1xzy1UwTz1kQ3zUs01zkw7zzsS3zzsD1zzw3Uzzy0kTzy60Dzz7U007Xk003Xw003XzU01k"
+ClassRoomVictory := "|<>*170$54.0kA30kA30U"
+ClassRoomBegin := "|<>*211$31.wDz1zy7zVzz7zVzz3bltzV1lwS00Nz3ssNzksQ9zsQC800674073730TVXVbztVkzzzlsxztswS00QQD2wD6DXy7k7lz3w3szVz0wTkzUCDsTU37wDl1Xy7lklz3lwM01k"
+ClassRoomNoBegin := "|<>*157$7.zwsA7bzzssA631UkMA631UkMA77rzk"
+ClassRoomAddS := "|<>*165$24.Dk00Tk00ENzzsTU3U1U300U300V3skXXskXXMkXXMkXXEkXXEkXXEkXXkkXXkkXXlkXXVkXXVkXXXkV37UU361U3C1UCPzzsny00U"
+ClassRoomAddS2 := "|<>*211$23.0Tw00zs01zk03zU07z0Tzzzzzzzzzzzzzzzzzzzzzzzzzzzzzy0zs01zk03zU07z00Dy00Tw1"
+ClassRoomDock := "|<>*154$26.zzzzz3zzzUy07U1U1s0MMS7667UFVVs4MMS04C3U03UMQ1w400zz01zzk0E0C7403UF00s4EwC04D3W13kswEwCD4D33l3klkE0Qw407T303s"
+ClassRoom_Moveout := "|<>*172$22.U006000Tzbzzszzz3Tzs8TyAsTVnskTDkbwzrznzzzzzs00TXztyTzbtzyTbztyTzbs00TU01yTzbU"
+ClassRoom_Lesson := "|<>*162$5.zzzzzzw0Dzy07zzU"
+
+global Academy_BTN_Confirm
+
+
+
+;/////////後宅///////////
+DormIco := "|<>*171$6.znVVVVVVVVVnzlVnzU"
+
+DormPage_in_Dorm := "|<>*208$26.00Tk00Dw807z303zlU1zss0zwS0TzDUDzXs7zly3zszVzwTszyDyTz7zjzlztzyDy7zlzUzyDs7zly0zyDU7zls0zyC07zVU0zs807y000zU8" ;成功進入後宅
+
+DormPage_Exp_Confirm := "|<>*183$30.1zzsD00007zz0zzzzUzzzzUzzzzUzzy1UwTy3UwDy3U07y7UkDy7Uzzw7Uzzw7Uzzw3UzzsE0zzsM0zzsw000lw000Xz001bzk01TzzU3U"
+
+
+DormPage_Training := "|<>*174$46.410M30A0M6NUQ0k0kta1Vzz33aMC7zzziNUn0k00ta6Q7U03aMzbztzCNXwTvbstaDlvC03aM6bxtzCNUnPrbsta7xjq03aMzzztzANXzzzbwla047kMn6MGkzV3ANVP7q6Bla4gvAMq6MmTARzs1X8skq706AU30E80M00A2"
+
+DormPage_Cancel := "|<>*164$51.0000000E3zs00C673zz001sssPVzzs3b76ACzz0AQtlVnUs03bAACA7008tVzlUs0170DyC670zzlVlkkS7zyAC661ss0lVklk7706AC7A00s0lzkPU07zyDy3s00zzlVkT01b06AC1s0Qs0lVsC03bzyBzVk0MzzrzsT077zyzi7w1ks0k1llkC7060CSD3Us0k1r0wQ71yU"
+
+DormPage_NickName := "|<>*164$51.00001U0k7zs00C673zzU00sssvVrzs3X76AAzz08QtlVVUs01bAAAA7008s1zVUkE3zyDwC67UzzlVVkkS7zyAA6C0ss0lVUlU2706Dw7Q00zzlzUTU07zyAA3s08s0lVUT01b06AA1k0Qs0lVwC037zyTz3s0szzrzkzU6706yCDQ1ks0k1XlkA7060Aw7XUs7k1b0QM70yU"
+
+
+DormPage_Supplies := "|<>*158$46.030031U00Q01A6003s06kM00xs0v3U07vk3wDzVtXkDxzzTzzszqPzzzzXAtBhk1UMnAq7061XMnMTzs0A6NVzzU0yNa7060DnCMTzs3wQlVzzkAlX6723U3AMMQSw0A3XVkT00kAC70w031kkTsw0AC71zUs0lnw701U327W"
+
+DormPage_Subject := "|<>*173$46.040000000s00zrzk1k07zTz03U0QA600701zks7zzy7zDyTzzsQAkM0A01zn1U0k03zDy030000kM0A01zr1U0k0DzzyDzzk1UkMTzz0a31U0k02Tjy0300NyMU0A01q1X00k07sQ60300TXUBzzzVjg0DzzzATzzTzzskDzy"
+
+DormPage_Subject_Shop := "|<>*149$46.0A0000000Q01zzzk0s0633U01k0MQ61zzz1zrzbzzy67QC0700MRkM0A01zrzU0k000QC030001kM0A03zzzVzzs0wTyDzzU91kM0S00a7zU0k06TDy0300NwMU0A01y33U0k07ss60700TX0Dzzzn7w0DzzzA7zz0000U002"
+
+DormPage_Inform_Confirm := "|<>*185$71.00i3nzzrz1zDkz873zzjy3wD1wEE3zy0000C3kVwDzkTzzkAD31szz0zzzUsS48rzy1zzw7kyMkzzw7zzkTXzlVDzsDzz0y7T347zsU001wAS00DzzzkTzs0MQDzzzzUzzkkksTzzzz1zzVV1kbzzsS3vy303U7zzkA7Xw6600DzzUsC1sAAC7zzz1k03kMMQDzzy7UzzkkksHzzwD1zzVVVkXzzkS3zz33307zzUQ7zy6663zzz0MDzwAAC7zzwA0Tzs0MQDzzsw000kkksMzzls001VbVUUzz7s007"
+
+DormPage_Share := "|<>*192$65.0060000000000A0000000000M0000000000k0000000001U00000001s3701k0A1kDw6zUDs7wDszwDzVzsDsztksS73UsS3Uv0ssC61ks71r01UQ03VUQ1jU30s3z30zzDs61kTy61zy7wA3VsQA3zw0sM730sM7020skCC1kkC0C1lUQQ3VUC1C730sQT30S7Ty61kzy60TwDsA3UzQA0Tm"
+
+DormPage_YellowCross := "|<>*228$28.01R0005u000Tc001yU007y000Ts001zU0Dzzy1TzzoDzzzszzzzXzzzyDzzzszzzzVzzzw3zzzk1zzk00zs003zU00Dy000zs0U3zU107y0G0Tk240S0G"
+
+
+;//////////MissionSub///////////// ;任務
+
+MainPage_MissionDone := "|<>*101$64.zzzzzzzzzzHzzzzzzzzzsDzzzzzzzzz0zzzzzzzzzs1zzzzzzzzz03RkkvVnQTm09rDDgn5nyE1bSCCng7bs04RyqvgmTDk0Rr73j79lzU3zzzzzzzzz0Dzzzzzzzzy0zzzzzzzzzx2" ;首頁的任務驚嘆號
+
+MissionPage_All := "|<>*142$33.bzzzzAzzzztbzzwDAy000tbzzk7Azzw1tbzzUTAzzk7tbyy1zAy30TtbsM/zAz03Ttbw0vzAzUDTtby7vzAztzTtbzzvzAy00TtbzzzzAzzzztbzzzzAzzzztU" ;左邊的全部圖案
+
+MissionPage_ReveiveAward := "|<>*198$59.z3C03w7U01yAAA3s1y7w000MDVVwTzzjkkz719swy3VXyD000wQ737sy4T1sMS4TnlMy3klw9zD1lw7VasLyzzVsD7Mkjzzz00E001DzzyDUzzy3DzwwT1zzy6Dzksy3jwwCDU0kw73ksQDz1VsC00ksTy77kQD3VkzwSDUsS73VztwT1kwC03sns03VsQ87sDlwD3ksMDsTVky7VkkzkTUkw03Vbzky3ksS73zzUsDUkwC7zzXVzV" ;上方的全部領取
+
+MissionPage_ReveiveAward_1 := "|<>*184$71.w3zy3zzzzVzzkD003zz001zzU7wDzzy003wz23svzzy3VzkyC4HXzzw7000sS001zzsC6z0lwEy3zzkQBy37UVwDzzU0PwC073sTzz1kvkNzy7kzzy3VrUzzw01zzw73j1zzsT3zzsC7C7ztky7zzkQCMDzVVwDzzU0QkT0100Tzz1kwVzy23Uzzy3Vs3zwADVzzw73kDzssT3zzsC7kTzXky7zzkEDVznDU0Dzy00T1zkz3sTzw0Ew1zUy33zzs3Vs1zUy11zzsT3W0zVw71zzny7C0z3kz1zzzwAy3" ;左邊的領取
+
+Touch_to_Contunue := "|<>*190$38.zUo71vzk71sSTs1kQ73y0Q000z071sTDU1kS7VskQ000AQ71zwST1nzy7TkE000zw7nzk7z1yTs3zkTnw1zsDw60zy3zU0Ts0zw00T0DzU03s7zU01y1z0Q0zUy1zsDtzzzzrU"
+
+MissionPage_MoveForward := "|<>*185$32.y0y1zzUTkDzkDw3zw7z0xy3zsSDVzzD0lC000BkTUDzw1s7zy0S1zzUDUTzk7s7zw3y1zy1zUSzUTs73k7y1kQ1U0020Ts3zU7y1zn1zUTzkTs7zw7y1zz1zkTzkTw7zw7z1zs"
+
+MissionPage_List_Empty := "|<>*140$67.zzzzzzzzzzzk7syTk7s0ySNzwSDtlzXzCAzyD7wwzlznCTz3XySTszt70zVVzCDwTy7UTmEzUDyDz7nzt2Tlzz7zntzwlDtzzXztwzyNbwzzlzwy0zDnyTzszyTUTzxzzzyzzzzzzzzzzzzzzk"
+
+MainPage_Btn_Formation := "|<>*133$71.000SBtvXb00Q0QUMLbCCQ00k1r0ASSsts008DS0ANnlb000KxvU0bj6Q0P0Prj08SsNU3b0jTyk021Y0CSkxvvk00C01tnnrzjM00807bjTSyxs3k03SQxxzvroDS0BtvrrjjSkxs1rbjSTyxz3riDSyxvvvriDSyRtvrbzjTsxzuLjjSyyxvnrjgSSxtzvrzjTyxvvrjzjSyRvvnbjSSyxzsrzjLyxvvvrjhzyxXvrbjjTytzvr7jSyzxzvXzzSQxtvvrzbTyxtnrzjTzwAzvrr5TzxxzkLzjTwtzvr"
+
+SkipBtn :="|<>*136$43.zzzzzzzy3sQCC0Q0QA63040C671U26327Uk11zU7kMQU3k3sACM0s0w60D0A0S307w6471U27331Ukz01VUkMTk1ks8ADw1sS6C7zzzzzzzw"
+
+global Touch_to_Contunue
+
+;//////軍事委託//////////
+
+MainPage_N_Done := "|<>*177$15.TzrzzUyA7lUSA1lUCA0lV6A8FVUAA1VkAD1VsCDVzzvzyU" ;首頁軍事委託完成的"N"
+
+CommisionDone := "|<>*172$10.zzzy7sTVy7sTVy7sTVzDzzvy7sTzzzU" ;主線軍事委託完成的驚嘆號
+
+Commision_Delegation := "|<>*145$53.zzztzbzzzU003yDzkT0007yDs0S000TwS01zz1zzsw0zU000A00Vz0000M0D3y0000zzy7zU00DzzwDz1UUTU3sTs71UT07kw0S3UTzzU00wDUzzk01kTw7s000A0001k10Ds0003zzsTk000707kzw7y3y0DVzs7w7w0T3zs7UDssy7bs20zllwD7s03zXXsSA000T07kw0000S0Dk00Dw0w0TU3"
+
+
+Delegation_Done := "|<>*203$21.zy9zzl3zyATzllVwA4001VyDwDlbVWAA00VlW0QAM3VX0wQM7XXVo0QCX70Ysk07wM1zDUTny7zzxU"
+Delegation_Page_Done := "|<>*84$11.zxznz7wDkT0w1k30400000U1U3U7UDUTUzVzXzbzc"
+Delegation_Spot := "|<>*170$30.0kA30U"
+Delegation_Incredible := "|<>*162$69.zyTbnw0z0Tk7znwSTU7s1y0wyTVnwwzDDns3nwWTbzs1y3wSTa3wzz0DnzrnwsTbbtbyTzyTbXw0zCTk7znwzTk7tty0U"  ;出現委託成功S頁面
+
+Delegation_Perfect := "|<>*158$70.0TUDk3w0w0y00y0z0Dk7k3s3ntzwwzDzDzb0DUzk3w7w7yQ1y3z0DkTnTtnztzwnzDzDzbDzU7nXwzw0y0zy0zD7nzk3w8"
+
+Delegation_idle := "|<>*164$17.CNkAFUMX0101WA34M68kDzUNn0lW1XA36M6AkAtUNn0r01SM3ztU"
+
+DelegationPage_in_Delegation := "|<>*152$25.k001s000w000zzUzw000200000000Q003y311w3UkA3kQ23sT1sDy3U000000000003UzkTkDsDw3kDz0E7zk0Dy000A00020zw1U"
+
+Delegation_LeftComm := "|<>*179$15.U0C03k0T07w1zUDy3zkTz7w"
+
+Global Delegation_Page_Done, Delegation_Spot
+
+;//////////科研////////////////
+MainPage_ResearchDeptDone := "|<>*169$5.z6AMlX6Dxlry" ;首頁的科研完成驚嘆號
+
+TechPage_ResearchDept := "|<>*152$54.w1zVzzzzzU1DVw0001U11Vw0001sD0Vw0001wD0VzVw67wDsVzVw6701yVz1w6701zVz0A67007Vy0A67sC1Vy0A63sC1Vw0800s7VVw6800k7tVw6801k3zVz6A67U3zVz6A67U200D6A670+00D6A674C00D6A67AC00T6AC7QDzVz2AC7wDzVz0AC7wDzVz08S7wDzVzzsy7wDzVzzty7zzzVzzvy7U" ;科研頁面左上角"科研"
+
+TechPage_TechDone := "|<>*177$7.zzySD7XlswSDbztszzy" ;軍部科研室的驚嘆號
+
+TechPage_TechComplete := "|<>*238$53.zzzzzzstzk200w01VzU401s003z0803k0UFzXwQTV1V1z7ssz0DU7wDllz0zUzszXXs0k0Dk777k1U0T0CCDnX01y0003z4ATs8007U8sDkE00D0NkTkX3XwTU0zV677sz01zWACDk203z4MQTU4ADy8kszy80zw13lzsQ3zs27Xzkk1zk0D7w001zXUyDs473zz1wTkAzDk" ;綠色的研發完成
+
+TechPage_StartTech := "|<>*195$71.w0000z03kDzVs0001y07Uzz3kM043s061zz7U0007k0A23zD0000DU0EA7yS0000TU1UMDww6010z131kTls0001y243UTXk0003w0830z7UEs87s0E01yD1U0EDk0U23sS2000TU1UDzkw0000z03zzzVs8021y0400z3kM8A3w0800z7UU007s0E01yD0000Dk0UM3wS0000Tk30s7sw4000zk61kDlsA461zUQ3UTXkM8A3z0M70z7UkE87w0EC1yD11U0Dk0003wS27U0TU0007sw7zy0z3000Dz" ;開始研發
+
+TechPage_Is_Teching := "|<>*154$7.tkMDDzzlkMA631UkMA631UkMCDjzU" ;已經在研發
+
+TechPage_Stop_Teching := "|<>*186$59.sDkDzzzkDzkTUTzzzUTz0000Tzz0zy0000zzy1zw0003zzw3zsDzzzz3s7zUM00Dy3kDz0k00Tw7UTy3UE0zsD00w7001zkS00MC003zUw00UA007z1s01UM00Ty3kDz0U00Dw7UTy1000TsD0zw2000zkS1zs43y1zUw3zk8003z1s7zUE00Dy3kDz0k00Tw7UTy1zUzzsD0zw3z1zzkS1zs7y3zzUw3zkD07zw0000US0Dzk0001"
+ ;停止研發
+
+TechPage_ViewDetails := "|<>*208$50.zzzzzzzzzzbzzzzwDztzzU003U001s000s000T0Vzy0007zszzzU3zw001zkYDz000TktkTzVzzkSS1k000M000Q000600070001c007zVzzyDzlzk00TU00Ts007s007w7zlyDzly000TU00T0007s007t7zly001yk00Tzzzzw007U001z7zls000Tk00S0007w007zzzzz7zls"
+ ;已經在研發
+
+Tech_NoCoinIco := "|<>*196$50.y000003zTk00T00Trw007k03wzU01w0CTjs00D07rvz001U7wzzs0087zjzz0013zvzzk00Dzyzzy001zzjnzk01Dzvw7y01tzwz0Dk0zDzDk1y0ztzzw03kTzDzz00CTztzzk00zzzDzw00Dzztzz003zzzDzk0Azzztzw06TzzzDzU7bzzznzw7tzzzyzz3zzzzzjzzzzzzzvzs"
+
+
+
+ConsumeMore :="|<>*174$68.zzzzzzzzjzDs007k003ktnnzbzw000z6QwztzzzDDztnCE003znXzzwnAzbwy001zzgv891DbDCTzzDm2EHtnnbXs07zbzyQwtwSTtk90zU00TnbzTyTzs007ztzo000zyTzzy01000Dz7zzzU0TyTzU001yNzrz7zzlyDzaTxU00TwzbznU0NvnbyDlzws06SwtzU8zySTxbjCTzUDzbbzNvnbzU0TntzqSwVw0z0wyT1rjMT7zyTzbss"
+
+ViewDetails :="|<>*206$65.zzDzzzzszXzzyTzs000z7v0003k001yDq0007U01zU3g000Dzlzz00Ts0Tz000S00zU0Ty000zzlwCM7zsTzw0zUww3U000s1y00070001zzA000C0003U4O001zsTzz08wDz3zU00zzzs007y001zzzk00DsDz3s1zXzsTU007k2D000y000DU0S001wFzsT60w003xU00yATzzzzz001w0z0003yDz3s1y0007w007k3w000Ds00DX7zzzzzlzsT6DU"
+TargetedRD := "|<>*170$68.zXzzzzzzzzzzkTzyDzU00w0007z3zs00TU001k00D3V7k0zsQ003lsFw0Dz73zkwS4TUbzzkU4D7V7k000A813U81w000724Es00DwzVzkV4C003k8MTw8F3U8Fw260724Ew20T33U1kU4D0U7k0MTw813k8Fy027z20Ew24Tw01zkzwC037z000QDs3k0ly0Q07Xy1zwQTkU"
+Fundraising := "|<>*169$65.73zw03zlszs407s07w007W02DUy7s00D404T3wDs00w0s3w00DU01w1U3s00T003s423kkkS007k007zVzw00DU00D003s00T000S007k00y000wAADU00zU01w8MTU63s003sEVy0A7U007kV3w007k00Dz3zkUkDY00y007y01y0TUw007kA3sE"
+RaiseData := "|<>*172$66.wT7wTXzwQDyU37wTUD4MTwU21wT0D4MTw000s00D4E1w001s00D401sU01wE0D41XwU0FwE0T413wwQ3w1UD413w003w1UT407w003w00D487w027sE0D4ADw037sF0D4ADz017sE0D0A7s003wF0D087sV23wE0D083yk61wF8Dw03wk6Fs10Dw1VwU0Ms00jw1lsU"
+AnalysisShip := "|<>*141$66.zzzzzzzzzzyUU1s3VzXk3wU01s3Vz001w000s00D081k000w00D081k003s3Vy00Vw00Ds3Vz001k00Ts00D00Xk00Vs00D07Dk001tUTz007k00Ts00D001k0E3s00D001k001z0CT007k001y20T001k001w70T701k401s7Uy667o000y0kSA67oA00y0sCAC7wU"
+Commissioned := "|<>*145$69.zzzzzzzzzXzs007z1zs00TX0E1s00D003s4D4D001zsDz0XsVs00D001zwT4DUM3k00D0XsVw70Tz1zsA20D0M3w80Tz000zVzz1X3s020DsDzkAMDy0MVs01z001sA34D00Ds00D0UMVzVlzVy3s424DwCDw30T0UEVz1lzk0Ds424DkS7z03z0U1Vw7kDk07s7wCT1y3zzzz1U"
+TestCollection := "|<>*143$57.nzTzzzzzzwDkC0U7s030S1kA0z00M00S103szXz01k00T7wM00S033szX0y7kDzz3wTzky103s03007k80T00M00y103zzzzV7k00Q0U048z003U400V7s40Q8U048z0X7V400V3k40Q8U040S003U40001k00Q0U01sTs43U40U"
+basicResearch := "|<>*171$59.lz7zzzzzU1VwDkMsy000007UU0Q12A00TX00wC4Q01z605sw8s03wA8/VsFky7sMEL3kXU0Dk4Ui0V300TUTzw0067kz000kW4000S001l48U00w3l3W8FVV3s0UD4EW003k10S8V700TU27wF2DwDz00Ts0AE00S001k0MU00zwM3zllU"
+
+;/////////每日任務////////////
+Daily_Task := "|<>*182$66.zzzzzzzzVzzwS0D001z200k00D000z200U00D000z2013zzz1zUy7sTk00T1zUy7sTk00T1zUw7sTkkkT1zUs7sTkksT1zUs7sTkksT000y4000007000y4000007000y7sTkzsT1zUy7sTkksT1zUy7sTkssT1zUy7sTk00D1zUy7sTk00D1zUy7sTw00TVzVy601zz0zU01y600zz0z003y601zzzzzzzz7zzU"
+
+DailyRaid := "|<>*143$51.y3zzzzzzzUTzzs001w000z000C0007s001U000z00087zzzsDz1U001z1zsD000DsDz1s001z1zsD3VsDsDz0sQ71z1zs73UsDs0000000T00000003s0000000T000D3zsDsDz1sQ71z1zsD3ksDsDz1sC31z1zwD0007sDzVs000z1zsDk007sDz1zzs3z000Dzy0Ts003zzk7z000w"
+
+DailyYraid := "|<>*141$51.w3zzz000DU007s001k000z00040007s0000zzzz1zs0000DsDz0s001z1zs7000DsDz0sQD1z1zs73UsDsDz0sQ71z00000003s0000000T00000003s001sTz1z1zsD3UsDsDz1sS71z1zsD1kMDsDz1s000z1zsD0007sDz1y000z1zsDzz0Ts001zzk3z000Tzy0zs007U"
+
+Daily_LV := "|<>*117$20.zzzsDzy3zzUzzsDzy3VVUsMMC663VVUs8MD263kVUw8sD0C3k3Uw0s3UC0M2U60c1UPzzzU"
+
+Daily_Formation := "|<>*151$62.zXU01s1UsTzks00S0E01zwC007U400Tz41zVsV007zW0TsS8T0zzsU007W7UTzw0U03s1UDzz0801y0U21zs67zzU800TzVU01s2A07zk800S8S07zwG007W701zy002Fsk00TzU00YSA0U7zs0007X1k0zzy001sls0DzZ800S8Q03zs2007U408TyEU2Fs0027z400YS0VUlzl0E97XvkCTwkA21szs3rzA75USDy1zzzzlzTXzzzzzzzzzzzzzzs"
+
+Daily_Left := "|<>*163$27.zzk0Dzw03zz00zzk0Dzw03zz00zzk0Dzw03zz00zzk0Dzw03zz00zzk0Dzw03zzU0Tzy01zzs07zzU0Tzy01zzs07zzU0Tzy01zzs07zzU0Tzy01w"
+
+Daily_Right := "|<>*158$24.U0Tzk0Dzs07zw03zy01zz00zzU0Tzk0Dzs07zw03zy01zz00zz00zy01zw03zs07zk0DzU0Tz00zy01zw03zs07zk0DzU0Tz00zzU"
+
+Daily_Ico := "|<>*142$11.Dszvlz1y3yDzzzzlz1y3w7sDkTUz1y3w7sDkTUz1y3yDyz" ;每日的驚嘆號
+
+global Daily_Formation
+
+;//////////演習///////////
+BTN_Exercise := "|<>*188$35.08w00U0000101000u02000204T00409w00807s0QE0zk1wU1DU3w02T07s04y0DKE0s0SgU000wN0E01tl0U003W10007611z0A423C0NA43g0mM4003AsC00CFsT03zc"
+Operation_Upp := "|<>*141$52.3000Q00024001k00080zy70U0UU000Q2023z007w8C80w00zw0k0VzVzw00024003k0008E00D3lDUV000zy3zzwC73w000QE00Dk001k000z00064003w7zkMEsQDkTz1V000z00064007w000ME00Tk001VwADz1zw47UkTw7zUEk7UDk00320z0T000A8Dz1w001s"
+Operation_Start := "|<>*213$65.k0300T1zs7zUsC7Vy3zkDz1kQD3wAT0zy3UsS7sMC3Tw01k0DkksCDsC3VsT00ky7kQ73ks033w7UsC71k04Tw700Q03UA000C3Vky7Us000A7zywDVUU3kMDzsMT330zVkE00Ey66Tz7UwADVsQCzwT1sMT3ksQTkS3kky7VVs00Q7VUADU3kz1sD308TU7Vy3k000EzkD3w7UwADVzkC7sD1ssT3z0ADkS3lky7y08TUw73VwDw0Ez1sCD20TlUVy3kQy70z7X007"
+Operation_Formation := "|<>*147$53.sTkTy0MS7lk00w0kQD3U01s10067003k200AE7y7W400F0DwD4DUTW000S8S1y0E01w0k7w0U07s208433zzk400C6007U8k0M400D0D03l000S8Q070008wM00C002Fsk20Q0003lUs0Ts007X7U0mY00D0C01U800S0E0U8E18w0010E02Fs2630U84Xlxs730k87XzUD63WkD7z0zzz7xyDzzz"
+Operation_Shop := "|<>*154$53.szklz3z1zlk00y7w1zzU01sTk3s1003kzU3k3wDz2623k7sDw8MC3w800s0Uy3kk01k3007VU03U600j0267sD01w000DUDzzk000S6DzzUM00s0E060EUVk0U0A0133U100M0227zW7kwA00D9ADVsQ00SG8T3ksEEwWEy7VkVVl4VwD3V33W900S72074G00wC40S8Y03wTzzzzzzzzzzzzzzzz"
+
+global Operation_Upp
+
+;///////////戰鬥////////////
+
+HardMode := "|<>*192$27.Dzzy800007zzy8zszl7zDy8ztzl7zDy8ztxl7yD28U00F7wDy8zVzl7s3y8z0Dl7l8S8yNVl7XCC8stsl7DDW8ntwl4zDy8Dtzl7zDyA"
+
+NormalMode := "|<>*192$29.znyTzzVw7zz1sTzz3lzzyDjzk0001zwQBzlssMzllkkTVXVVz372Dz6C4TyAQ3zzssDw00007zzzzzDzzry7zwDwDzsTsTzkzkzzVzVzz3s"
+
+
+Auto_Battle_On := "|<>*77$30.w1y7sk0S3sUsS3sVwC1sXy60s3y60s3y60M3y6483y6683y660XyC70VwC7UksS7ks0y7ky3zzzU"
+Auto_Battle_Off := "|<>*89$40.s1y030303s0A08S7VzlzVwCDz7wDsszwTkzXXzlz3y60700TsM0Q00zVVzlz3yC7z7wDkszwTsT3XzlzksSDz7zU3szwTzUzzzzzU"
+
+None_Kit := "|<>*71$25.w3zzy1ztz0zwzUTUTkDUDzzU3zzkVzzsEzzw8Tzy4Dzz27zzV3zzkVzs0Ezw00Tzy0DzzU7zzk7zzzzk"
+
+Using_Kit := "|<>*183$71.w7w77zzU0007kTsA3zz1s7kDUU003zy3sDUz1zUzzzw7kT1w7z1zzzsDUy3sRy3XzzkT1w7ksM63zzUy3sD0kMA3zz0000S1VkQ7zy0000s33UsTzw7kT1k671kzzsDUy3UAC3VzzkT1w7EMQ73zzUy3sDUkMA7zz1w7kT1UUMDzy3sDUy33UsTzw7001w6D1zzzsD003sDy3zzzkz1w7kTQDzzzVy3sDUz0Tzzz3w7kT1y0zzzwDsDUy3y1zzzsTkT1w7w0zzzlzUy3sDk00zzXz1U7kT001zyDy3UD"
+Using_kit_Cancel := "|<>*205$69.VsTzTzzkMMA4D3ztzzy311VVsTy7zzsw88QD3TUTzzxV17VsTw3zsTg88w63jUzz1s713VsRw7zw7EM0AD3jUzzkG000VsRw7zy6ETs4D3bUzzsa3zVVsSsDzzwkTwA73n1zzz63z1UkSMDzztk00AD3l3zzyC3z1VsT0TzzlkTwAD3s7zzwS3zVVs70zzz3kTsA41wDzzkS00100TVzzz3kTs803s7zzsS3zV08T0Dzz3kTw8D3k0zzsC3zV7sS81zz1kTc/z3XUDzsC3w1zsMy3zz1kTkA"
+
+Formation_Upp := "|<>*98$71.VkwCRxwCwDRzTCvAPlwxniPyyxmMbfvvjQLxxvVlD3rrSuDvtbPZQrjjNqTrsSvzvjzS7izzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzU00000000000zzzzzzzzzzzz" ;左上方FORMATION字樣
+Formation_Tank := "|<>*166$22.0zy03zs3zzyDzzszzzXzzyzjzzQTzssTzkkk7Vk0DVU1z50Dy11zw0Dzk0Tz01rs06DzwszzzXzzy1zy2" ;左下角那台小坦克
+
+Battle_Victory := "|<>*111$34.zzzzzvzzzzzDzzzztzzzzzDzzzztzzzzzDzzzztzzzzzDzzzztzzzzzDzzzztzzzzzDzzzztzxzzzDznzztzzbzzDzzDztzzyTzDzzwztzzztzDzzzntzzzzbDzzzz9zzzzyTzzzU"
+
+Battle_Defeat := "|<>*105$51.000000Tzs000000zz0000003zs000000Tz0000000zs0000007z0000000Tz0000003zzk00000DzzU00000zzz000007zzy00000Tzzs00003zzzU0000Dzzz00000zzzs00007zzzU0000zzzy00003zzzs0000TzzzU0003zzzw0000Dzzzk0001zzzy0000Dzzzs0000zzzz00004"
+
+Battle_Defeat2 := "|<>*85$18.Tzw7zsbzllzXtz7wSDyQTz8zzlzzXzzZzzATySTwz7tzbnzlbztDzwU"
+
+Battle_De_Upgrade := "|<>*169$27.01z0007w000Ds000zU003y0007w000Tk000z0003s000y000DU001w000T600Dks01w7U0T0z07k7w1w0zkT01zbk07zw00Tz000zk003w000DU04"
+
+Battle_Touch_to_Continue := "|<>*129$24.U0wTWEwTWEwTUEwTU4w0UAw0aAwTU0wTU1wTyTwTU1wTU1U1yTU1y0bt00btU/btxdbtZdbtYYbtYY01AbU1DzbtU"
+
+Battle_End := "|<>*175$41.zzzzzzz0000006000000ANa0000MnA0000laM0001W8U00030000006000000ATzzzzyMzzzzzwlzzzzztXU0lzzn600003aA00007AM0000CMk0000QlzzzzztXzzzzzn7zzzzzaDzwzzzAM01zbyM"
+
+Battle_Map := "|<>*186$29.zyTzzzszzzzVzzzw3zzzk7zzz0Dzzs0001U000200000000080000M0000s0001w0zzzw1zzzy3zzzy7zzzyDzzzzTzz"
+
+Weigh_Anchor := "|<>*141$57.zzUzzU040zkw7Xw00U7y7UsDk0AMzkw71y0131y7UsDk01wDkw71y0103y7UsDk080Tkw71y0333y000DU000zk003w00k7y000Tl2A0zzw7zy0103zzUzzk08wTVw7ky0003wDUw7k000TVw7UzzkTzwDUw7s000zVw7Uz0007wDUw7zz3zzVw7Uw0001wDUw7U000DU000zzkTzw000Dzs3zzU003zz0zzzzzzzzzzzw"
+
+Battle_BackAttack := "|<>*172$28.zzrzxzy7zkzkDrVu0SC3UEs8C71UksQC33VksSS73VzsQC7DVksQC73VUMQC61VksQC73VksQC730EsQA131kkAA731kkQCD33ktwCT3zkzs"
+
+SkipBtn :="|<>*136$43.zzzzzzzy3sQCC0Q0QA63040C671U26327Uk11zU7kMQU3k3sACM0s0w60D0A0S307w6471U27331Ukz01VUkMTk1ks8ADw1sS6C7zzzzzzzw"
+
+UnknowWife := "|<>*153$70.14AMFVXxsP8MCMNVb3AHV4UcvUiCy7X64L3Xj3srkSA81w6Cy3WD0skk3k8zsC0x1X30DE3yksVq6AA0xUDv3W7MMlsXq8viCARll7WDQlQssEX7YyNtnzzzzzzzzzzrc"
+
+Battle_BossIco := "|<>*146$58.zw7zkDz0zu0kM1UUA20s31U6200M2UA60M801U3zUM1Uzs3zDy1U61zkDzUA60M0100C0kM1UU400s31U660EM3zw7zsDz0zy"
+
+Battle_Exit_Battle := "|<>*178$27.zyDzzzkTzzy3zzzkTTky7kQ7ky3Uy7kQ7ky3Uy7kQ7ky3Uy7kQ7ky3Uy3kQ0003Uw3kTDkS7zy3zsTkTV1y3w0DkTU1y3w0DkTUU"
+Battle_Defensive := "|<>*87$30.U1zDs00z7s7sz3k7sz1U7sz9Y7szAA7szAQ00zCwU1zDwU"
+
+Battle_Weigh := "|<>*207$27.zy3zzzkTzzy3zy7kT3ky3sS7kT3ky3sS7kT3ky3sS7kT3ky3sS7kT3UQ3kQ20M3sy3sTzkTjTy3xsDkTU1y3w0DkTU1y3w0DkTUU"
+
+Switch_NoParty := "|<>*147$11.wDsTtzzzzzDwDkTUz1y3w7sDkTUz1y3w7sDkTkzrs"
+
+BTN_Pause := "|<>*172$32.zzzzzzzzzzzk1y0Dw0TU3z07s0zk1y0Dw0TU3z07s0zk1y0Dw0TU3z07s0zk1y0Dw0TU3z07s0zk1y0Dw0TU3z07s0zk1y0Dw0TU3z07s0zk1y0Dw0TU3z07s0zk1y0Dw0TU3s"
+
+View_Detail := "|<>*184$17.zzjzkDk0DsyzVsz3lyDs003lyz00S7ksDXYD6MyDlwTXsz7ly03wTbzzzzzzzzzzzU00U"
+
+Lock_Party := "|<>*92$7.0SSSQ00zzzzy2QTDbpm3"
+
+global Battle_Victory, Battle_Touch_to_Continue, Battle_End, Formation_Tank, Battle_BackAttack, SkipBtn, UnknowWife, Battle_BossIco
+global Battle_Exit_Battle, Battle_Defensive, Battle_Weigh, Switch_NoParty, BTN_Pause, Battle_Map, Battle_Defeat, Battle_De_Upgrade, Battle_Defeat2
+
+;///////////tomap//////////
+
+ToMap_Start := "|<>*211$61.zy3zDzUsVUzz1z3zks00TzVz0s000M80000DkzwA7zzzzzs7y63zzyzzsCD31zzz3zw73VUyzz0Dw70EkDDzU3s008M7rzk3w00QA7tzs3z00S63wTw3zUkT31yDy1zlkTVUz3z0zxsMkkDVz0zzsM8MDkTUzzsM0A7sDkTzsQ063w7sDzkw331y1wDzlw1VUT0wDzzw3zkTUS7zzy1zsDUT3tzw0C07sDXsTy23U3zTlw7w7Uw1zztw1wDkS0k"  ;立刻前往
+ 
+Mode_off := "|<>*88$21.zzzy301U80AF37W8swF33W88AF11W8swF77U8sy177sMszzzzU"
+Mode_on := "|<>*114$17.zzzUl61WAF4MW8l41W834E68UAF0M20kAFktXzzy"
+
+global ToMap_Start, Mode_off, Mode_on
+
+;//////Choose_Party/////////
+
+Fleet_Select := "|<>*170$65.z7U1Vy23VkzqH4T7w433XTUU8w/sMT6AT70EMHkkwAECC80E3VXy0zw4FsXz37w3zs0Xl7y4TkCTk17W7w9zVsTW2D5XsLy3kT44E33kjs71yC8Xi7Vj467wQF6wD3Ds0zksW8sS6DU1zll41xwCD0/zVWDzzsQQ8Lz17zyTksFkby08zwTVkD07w0E00T3Vw1Ds0V00y03k27k129Xw070476W4H7sMQAA6D48aDkkksMQS8FATVb7kttwEWMz3zz1nnkV4lS7zk3z"
+
+Fleet_Select_Party2 := "|<>*196$45.zUEDXU08s00wM013437X00A800wM01l004000DMk0U001z0040U0Dw20wM01zslzXU08801w00110070006A01U001lslw1ksy000kM01k007X00CC27wM01l0sDX00A0TVwE0001y7X000s00kTszDk067z7w"
+
+Fleet_Start := "|<>*217$63.zUz0zzUT0Tzy3sTzs7w3zzkT7Xz1zkTzy7lsDkTy3rzsk00wDzsQ800007WTz70zzzzztkU007zbzkTy1w3zUsQ63zUTUTw00Ukzw7w3zUsA67z1zkTw71UkzkDy3zUsAC7y0zkTw71VkzkDw3rU0AC7w1zUQQ71Ukz0Dw31UsA67v1k00471VkysDw3zUsAC7z1zUTw01VkzsDw3zUsA67z1zkTw71VkzsDy3zVsAS7z1zkTwD1zkzsDy3zVMDA7z1zUTw"
+
+Fleet_Done := "|<>*154$10.TnzjDsTVzDzzzzDsT1w7kT1w7kT1w7kT1w7kT1y7xy"
+
+global Fleet_Select, Fleet_Select_Party2, Fleet_Start, Fleet_Done
+
+
+;/////////shipsfull//////////船塢已滿
+
+SF_Ship_is_Full := "|<>*170$71.zzzzzzzzzzzzyTzztzbzzzzztz0znyDzU01zny1zbU1y001y0RvzD01zzznwwvrySTnzzzbvtrjwwzbxzzDonDT09zDvzyThaSznk0TrzwzN9wzbbzzjztyy3sTDDzz003k0jzyS00y007U1zzww01wzzDrn07ttzzvzzzda0DmE0DrzzzPByTUU0TjzzwmPww7zgzTzyNortkwd9yzzwntjnzvPHxzznbnTbzarbtzzbTa0DzBjDk00AsQ0Twvkzk00xtvwzzzVzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+SF_In_Dock := "|<>*143$53.sDzzz3w7zkT03y600C0607sA00Q0A0DkM00sQMMT00zVk8kky0003UFVVw00070271w600S00C1sADzwC0y3kM00003zzUk0000zzz1U000100y33zz3W01w60061403sA00A28S7kQ00M0EwDUkEEl0VsTUUUVXl3kw01137W7Vs2GG4D4D3kQYY8s807bl90HkE0TzqG0jVU1zzzy3U"
+
+Dock_Sort := "|<>*174$31.sDsMDw7wA4y3y62D0S303U01U003kkTsDsMDw7wA7y3y62T1j307U01U1kDUkT0DsMDU7wA7k3y63w1z31iUzVUXkTUk0sA0M0Q7wA7y3y63z1z31zUzVUy0TkkTkDsMDk"
+
+Dock_Ship_Empty := "|<>*164$65.lV67zzU0007U04Dny1103z248D1w2667y00E03k4AADw00VUzU8MMTsEV31yMEkkzk0263zkVVV7U2AQ7zV3307y60sDU00008003kTy4AADzsTDUzw8MMTzkwz1zsEkkzz3zw7zkVVVzwDzkTzV332Ts000Tz2660TkTz0zy44A0TUzy3z00000z1zw7zzzzzzy000DzvjjVzw3zkTzb77UzsDzUzyCD3UzkTz1zsQC7UzUzy3z0sQ70z0007y1kwD1y3zsDw7VsS3"
+
+Dock_Inform := "|<>*160$60.zzzzzzzzzzXlyS0C07U1XkyS0A07U1XkSSDwTbXtXkCS7wTbXlXn2S1wTbU1XnUS1wTbU3XnsSDwTbX3XnwSDw07XVrvyTTy0DrtzzzzzzzzzzU"
+
+Dock_UnEqu_Confirm := "|<>*184$70.kT000zzXy3w73sky7zs0000AD23tzz1zzz0kw83jzs7zzwC7lX7zzUTzz1sTwAPzy1zzsDVzll3zw0000SCS007zzzkDzs0MsTzzzz0zz113Vzzzzw3zwAAC7zzzzkDzkk0sFzzy10wT31003zzsA3UwAA63zzzVs01kkksTzzy7Uzz333VzzzkS3zwAAC6Tzz3sTzskkM0zzw7VzzX3107zzkC7zwAAC7zzy40Tzk0ksTzzss0zz133Vnzz3k000AQC67zwTU00Ezk00DzXz001jz1zzzwzz006"
+
+Dock_Get_Items := "|<>*164$46.yTnzzyQyNyDyNsltbk1w800aSD7kyQyNXQzbn3tYQbwCATaSsT4k061sXwm7Dzbkzzc03yS6TwNlzt1tzlU0zaTby6030E03mNly900C9U0NbzblaTzaQyTiE06NttztU0tbnbzj7baTCTwy0wtztzXs1nbw7sM30zTlzznza"
+
+Dock_Get_Items_2 :="|<>*191$71.k71sSTw1zzz30C3UsTs3zzk20Q000zU700000sD3ty0Dzw3k1kS7VwUTzw663U001nUzzk8Q71zwTz1zs01sCTzkzy20003kM000zs7ly1zUyTy0zkDkS3z1yTs7zUTUM7y3yTUDz0z0kDsDw60zy1z1UTkTw03zw3y3Uw0zw00Ls7za1s1zw00TkDzk3s7zU01zUTzk7kDs3U7z0zzUTUy1zsDy3zz1zDzzzzzyTzzDy"
+
+global SF_Ship_is_Full, SF_In_Dock, Dock_Sort, Dock_Ship_Empty, Dock_Inform, Dock_UnEqu_Confirm, Dock_Get_Items, Dock_Get_Items_2
+
+
+;////////AutoLogin/////////
+
+Login_In := "|<>*215$46.zzTzzzzy08lzzzzs0WDzlzzzX1jz3zzACATy7zsFsVzwTzsDkTzszzk01zzVzy003zy7zVzy7zsDwDzwDz0zl008zwFzw00zzl3znzXzyCDzDyDzssTwzszz7lzk03zsTXz00DzXy7zDnzwTwDwSDz1zsTlszsDzk00033zzU000CTzzM"
+
+Login_Google := "|<>*185$35.zs00Dzz0007zw000Dzk000zz01w3zy0Dy7zs1zzTzk7zzzz0Tzzzy0zzzzw3zzzzk7zzzzUTy0030zw0061zs00A3zk00M7zU00k7z001kDzzs7UDzzUD0Tzz0T0Tzw1y0Tzk3y0Dy0Dw07k0T"
+
+Select_Account := "|<>*151$68.T73i3U71lnXXtkvUs1kQQssSTyzy0Q77CC37zjzUzxzzzU1k3UEDzTzzs0Q7s73zbzzy071y3k700Q001zzzs1k07000TyTy0Q3zzyzUy00071zzzjs1UQ01kDzznyDzzw0QU1k03XzzzU7tzzzkszzzs1yzzzwC0M700zDzzz3U61k0zUD0s0tzzzwDk1kC0CTzzz3w0Q703bzzzk70zzzUs1UM01kDzzsC1w7U0Q3zzy3Xy1y0700Q00sz07s1k07U0D700Q0QDzzzDy000073zzzs"
+
+CRIWare := "|<>*173$50.7D14W8QQnnstAaD75srCHNXN0sAnYqQqEC3AthbBY30zCPFHlksDXbIIsMC3ssrBD43UqCBnvF0TAnXAqoE3nAsn8hb08F40W89kU"
+
+Game_Update := "|<>*207$66.U0T3vzzzUzzwDq3lztzUz7wDU3Uzsz0y3wD67lzU0000sS63nz1zzz1sS41bz1zzy7sTAMzz1zzsDsTsMnz1zzkDszssVza000Dkls01zzz1zzk0kkzzzz1zzkkUkzzzz1zzkkUkrzyD1xzUk0k3zy31szUkk01zy71sDUkkkzzw700D0kkkzzw71zzkkkkrzw71zzkkkk3zwD1zzkkk01zw71zzkkkkTzs11zzk0kkzzsE1zzkUkktzks000kkkkkzlw001kzk00TXy003U"
+
+System_Announce := "|<>*175$29.k00Dzzk7zzz07zzs1yDz0zkDw000Dw000zs007zkw0zzzUADzw3w7z0zw3k0003U00A7007w708DsC7kTsz7Ulzy31kTs23kTkQ7UT1sDUQ7kTUky0z17y1z3"
+
+Game_Update := "|<>*210$30.0zzz31zzwD1zzsDm0007zzVzzzzVzzzzVzzzDVwzy1VwTy3VsDy3U07y7Vzzy7Vzzy7Vzzw3Vzzw1VzzwM1zzsw000tw001nz003bzU03jzz03U"
+
+CheckServer := "|<>*144$26.TzDzDzVzvzkTzzw7zzz1zzzkTzzw7zzz1zzzkTzzw7zrz1zszkTxbw7ywz1zTbkTjwy7rs"
+
+global Login_In, Login_Google, Select_Account, CRIWare
+
+
+GetCards := "|<>*162$31.zzj0DzzX07zzU0HzzU0TzzU0TzzU0TzzU0Q0zU8S0TUCT0DUDzU7UDzk3UDzs1UD0Q0kDUC0QDk70DDs3U7zw1k3zy0s1zz0Q0k3UC0M1k70A0s3U60Q1k30C0s1U70Q0k"
+
+global GetCards
+
+;////////////Delegation////////////
+
+Delegation_Touch := "|<>*190$38.zUo71vzk71sSTs1kQ73y0Q000z071sTDU1kS7VskQ000AQ71zwST1nzy7TkE000zw7nzk7z1yTs3zkTnw1zsDw60zy3zU0Ts0zw00T0DzU03s7zU01y1z0Q0zUy1zsDtzzzzrU"
+Delegation_WaitingforDelegation :="|<>*145$53.k001z7zsDU003z7w0D000DyD00zzUzzwS0Tk000600EzU000A07Vz0000Tzz3zk007zzy7zUkEDk1wDw3UkDU3sS0D1kDzzk00S7kTzs00sDy3w00060000s0U7w0001zzwDs0003U3sTy3z1z07kzw3y3y0DVzw3k7wQT3nw10Tssy7Xw01zllwD6000DU3sS0000D07s007y0S0Dk1zzzzwTzk3"
+Delegation_Inprogress := "|<>*201$57.zrzzDzzzDww9zlU1zsz3X7wQ0Dz7w8073k1zszn00kzzy007kszMzzk00w77z7zyT77k0Dl00nsw101wM06T7U8tz3z7nswl01kTsy00680C3z7k00l7DyTsy006803nz7nswl00STszz7y0zznz7zsz03syT0zz7ss07ns7zszjk0yTVzzDw"
+NoneDelegation := "|<>*170$58.zzzzzzzzyDzzzzzzzzszzzzzzzzzXzzzzzzzzyDzzzzzzzzszzzzzzzzzXzzzzzzzzyDzzzzzzzzszzzzzzzzzXzzzzzzzzyDzzzzzzzzss000DzzzzXU000zzzzyDzzzzzzzzszzzzzzzzzXzzzzzzzzyDzzzzzzzzszzzzzzzzzXzzzzzzzzyDzzzzzzzzszzzzzzzzzXzzzzzzzzyDzzzzzzzzszzzzzzzzzXU"
+Delegation_urgent := "|<>*138$35.000000000003zzzzzzzzzzzzzzz3zk01w0DU03k0T0161ky00A00Q0ky00s00Q01s0Ms03s0Dk07U0z00DUCC00y00Q28w00s49w03kA1U11U0367W81bzzzzzw"
+Delegation_Empty := "|<>*155$65.UTXsz0Tk3tsTz7lySTwztkzy73wyztzn9zwC7txznzmE7tRDnnzbzVUTmGTUDzDzXDzagz7zyTzCTzANyTzwzyQzyNnwzztzws3wvbtzznzts7xzTvzzjzvk"
+
+BTN_Advice := "|<>*210$32.w7kMMz0A7w7k0001U00sTz1sC7zkS3Vzw70s/z00C0Dk0001w60E9s1sC7y0S3UzU7UsTs1sC6T0S3U3w7U00T1sA3zkS3Vzw7UsTz1sC7wUS3VXU7UsMQ1s003Uy3zzsDUzzs"
+Ico_Oil := "|<>*135$20.zzTzzXzzMTzX7zsEa6600kUE4AAtVDCMTl7Dy1zzUTzyTzy"
+Ico_Gem := "|<>*124$47.0000010000000M10000000zk00000Dzk00603zzU0000zzz00003zzz02U01zzwzw0tlzzs00TXszzc07z7wzyS1zyTwzzy7zszzTzw3znzyzzsXzjztzzl1zzsDzzU0zs0zzy00w01zzwE1UU1zzsc0A03zzXU3s17zs007w2Tzc00Tw0zySA0zwHzsz41zw7zl"
+Party_OK := "|<>*110$24.zwDzzwDzzwDzzwDzzwDzzwDzzwDzzwDzzwDz0000000000000000zwDzzwDzzwDzzwDzzwDzzwDzzwDzzwDzzwDzU"
+Spend_Oil_Confirm := "|<>*185$31.xzkTVw0000MDzzs07zzw43zzsC3zzsD1zzs7l0003zzsDzzzw7zzzy3zzwD1xzy1UwTz1kQ3zUs01zkw7zzsS3zzsD1zzw3Uzzy0kTzy60Dzz7U007Xk003Xw003XzU01k"
+
+
+global Delegation_Touch, Delegation_WaitingforDelegation, Delegation_Inprogress, NoneDelegation, Delegation_urgent, Delegation_Empty, BTN_Advice, Ico_Oil, Ico_Gem, Party_OK, Spend_Oil_Confirm
+
+
+;/////////Message///////////
+Tips := "|<>*181$64.kSC00z0y7AD3kMS1y2000Q001sDs8000l3y7UzkzkzyADsS3zjb7bskzVsDxy007b3y7UzXs00BwDsS3y7Vz1zknVsC067w7z227UzVs80Q000S3y7U01zUz1sDsS7w7y3y7UzVsTkTsDsS3y7Uz1zUzVsDsS007y0y7UzVsTkTsEsS3y7Vz1zV1VsDsS3w7wC67UzVs00Tks8S3y7Vz1z7UVsDl6DwTsS200w63zzzXwMC3Uw000ATzVsC3s001nzy7VwTk00C"
+Center_Confirm := "|<>*182$70.sDW00Tzk0003Uw8T3zw7zzwC7VUwTzUTzzksS48rzy1zzw7VwlVzzsDzzUyDz64zzUzzw3kvsMUzz4000D37U03zzzw7zw0AC7zzzzkTzkkksTzzzz1zy323VDzzkQ7rsA0A0Tzz0kSDUkk01zzw71kC333VzzzkQ00kAAC7zzz3kTzEkksHzzwD1zz333V7zzUw7zwAAA0Tzy1kTzkkkkTzzs31zz333Vzzz307zw0AC7zzwS000kkksMzzls0033D311zyDk00ATw007zlzk00zzkzzzzTzs02"
+
+Message_Inform := "|<>*178$64.y6wC3zk000zwlksDz1zw7k033Vzw7zkTzzwC7zkTz1zzzksTz0007zyD3Vzw7zkTzkQC7zkTz1z03ksTz1zw7zzz01zw000Tzxw07zkTz1zzW00Tz1zw7w073Vzw7zkTzzwC7zkTz1zzzksTz0007wyD3Uzw7zkTk0QC3zkSTDz31ksDzs8TTwA73krzUUyDkkQD3Ta73sD31kw5yMQCkQA73k7VVlt1kkQD0Q63z6331ky1kM008A073s73U00VkkwDkQS003y"
+Message_Cancel := "|<>*205$71.zzXzzzzUzw7Tzz1zzzzUnsAA003zzzzUlkMC7Vzwzzz1VUkQD3zkzzy611XsS7z0zzzP22DkwAy0zzzq44zVsTy3zsTCM+z00vsDzsCXkMy7VrkTzkN000QD3jUzzkG3z0sS7D1zzV47z3kwCS7zzqMDy7VsSsDzzskTwD00wkTzzlU00S7VtVzzzb000wD3k3zzyC3zVsS7k7zzsQ7z3kwDUTzzlsDy7Vs30zzz3kTsD00T3zzs7U00M01y3zzwD1zkk03s3zzsS3zVU67U3zzkQ7z31wD41zzUsDy7"
+Message_Reconnect := "|<>*173$71.zzzzzzzzzzzzyTzzzzzzzzzzw00DUA0DU60Tm00T0M0T0A0zbzwywrwySNtyTztxtjtwwnnwk0HvnTnttbblU0bk6w7k30D3zzDUBzzU30Q7zyTSPzzzb7tC0Qywk0zyT7qQ0txtU1k000wttnvnHnk003tnnbk6rbyTlznbbD0BaTlzkzbDCSSPAy0Q0DC0Qwwr3s0M0SQ0tttj7wwnnwtznnnSDttbbtrzbbasTnnDDnzzCTBaDU60TbzUQkMSD0A0zDzVzVryySNtzzzzzzzzzzzzzzzzzzzzzzzz"
+Message_FixKit := "|<>*160$48.zzzzznzz0107zXzz0207z00zAT77y00z03b7wTlzDnWDsTVzDXkTk00703sTU007ATkTzzzbATU7zzz70073y007zXTny007z3rzzzzbw63zw007k0Bzw007s0szzwTzw3sDzyTzU007taDnU0Tbt77lwwtzl7bNswsTn7y8Vwy7XU0Q7UzbrU0TzVzzzw1zU"
+Message_FixKit2 := "|<>*152$71.zzzzzzs01zzzzzzzzzU07zzzzzzzzy00TzzzzzzUTs01zzzzzzz0Tk07zxzzzzy0zU0Dzlzzzzw1y00Tz3zzzzs3w00zw7zzzs00801zkDzzzk00E01z0TzzzU00U01w0zzzz001000E1zzzy00200003zzzw00000007zzzzk7U0000DzzzzUC00000zzzzz0M00001zzzzy0000007zzzzw000000Tzzzs0000000zzzz00000003zzzw0000000TzzzU0000001zzzy00000Q03zzzs00001y07zz"
+
+Message_See :="|<>*199$31.kSC00sS33kA00VsC8Tkw6ADsS3C7wD1b3y7UjVz3kTknVsDsEEw4000S3w7wD1y3y7Uz1z3kTUzVsDk7kw7sEsS3w8AD1wC67Uy713kT7UVsD3kE07XwMC3XzwD1nzy7Vk"
+
+
+
+
+Chicken_Face := "|<>*185$16.k0PU1y07s0DU0k000401w0Ds0zU1w01UU"
+
+EventList := "|<>*161$71.67zkz1zw0606ADzXU01s0805sTy7003kVU0TU1wS007U067l03k084D3V01W07W0E0S7203y4C0E20w0AUaA8Q0U8Vslt9AMEs3013k0E0MkVw6607U0U1lV3s480Dk007X27V83UTU00764D6000z3zsCA8Q0003y000QMEs000Dw000tkVk1zzzsTz1zV3zyFWDk003W6704X6TVzwD4AC116Az000TMsQG2Dsy001zVktY4QFzUkS861n8M0Xw3UwEA7aEk160D00xsDzzk7w1z03zzzzzzzzzzzz"
+
+Announce := "|<>*160$60.zUTDzzVsD1z0zbzzUs00z1zXzz0000y1zVzz3sDzy3zkzz7sDzw7zkDyDsDzwDDk7yTsDwsD3s1zzsDskS1w0xzs7kky0w1s0000Xy1y3zzzzz7w3z7zzzzzDw7zzzbzz7zs7zzzVzy3zsDzzzU001zkTXzzUzy1zkzVzzUzy3zVzkTzUzy3z3zkDzUzy3y7zkDzUzy3s0007zUzy3s00A7zUzy3s01w3zUTy3s0Dw3zU003w3zy7zUzy3U"
+Announce_Check := "|<>*144$29.zzzz7zzzw7zzzk7zzz0Dzzw0Tzzk1zzz07zzw0Tnzk1y3z07s3w0TU3k1z0307z000Tz001zy007zz00Tzz01zzz07zzz0Tzzz1zzzz7zzzzTzzk"
+
+global Tips, Center_Confirm, Message_Inform, Message_Cancel, Message_Reconnect, Message_FixKit, Message_FixKit2, Chicken_Face, EventList, Announce, Announce_Check, Message_See
+
+;///////////////////////MAP/////////////////////////
+
+Map01_1 := "|<>*132$25.wTzwQDzw87zs03zs21zy1kzzksTzsQDzwC40C72073V03VkzzksTzsQDzwC7zy73zz2"
+Map01_2 := 
+Map01_3 := 
+Map01_4 := 
+
+Map02_1 := "|<>*139$26.UTzy03zz00Tz067zU1Vzw0ETzkwDzwC3zz3VU1kkM0Q8C0727zzk1zzw03zz00zzk0Dzw8"
+Map02_2 := 
+Map02_3 := 
+Map02_4 := 
+
+Map03_1 := "|<>*141$27.UDzz01zzk07zs0Ezy027zs7kzzksDzy71zzks40C7kU1k240C0Ezzk27zy00zzk0Dzy41zzkU"
+Map03_2 := 
+Map03_3 := 
+Map03_4 := 
+
+Map04_1 := "|<>*137$27.w7zz70zzks7zs60zy0k7zs60zzkW7zy4EzzkW40C0EU1k000C00Tzk03zy7kzzky7zy7kzzkU"
+Map04_2 := 
+Map04_3 := 
+Map04_4 := 
+
+Map05_1 := "|<>*135$27.0Dzz00zzk0Dzs0Tzy00Dzs00zzk07zy0Ezzky40C7kU1k240C0Ezzk27zy00zzk07zy41zzkU"
+Map05_2 := 
+Map05_3 := 
+Map05_4 := 
+
+Map06_1 := "|<>*137$27.kDzz40zzk07zs0Ezy03zzs0Hzzk07zy00zzk240C0EU1k240C0Ezzk27zy0EzzkU7zy61zzkU"
+Map06_2 := 
+Map06_3 := 
+Map06_4 := 
+
+Map07_1 := "|<>*131$25.0Dzw07zw03zs7Vzs3kzy1kzzksTzsQDzwC40C72073303VVzzkkzzsMTzwADzy4Dzz2"
+Map07_2 := 
+Map07_3 := 
+Map07_4 := 
+
+Map08_1 := "|<>*146$27.UDzz01zzk07zs0Ezy027zs0EzzkUDzy41zzk040C0EU1k240C0Ezzk27zy0Ezzk07zy41zzkU"
+Map08_2 := 
+Map08_3 := 
+Map08_4 := 
+
+Map09_1 := "|<>*146$38.zzUTzyDzU3zz3zs0zz0zy4DzUDzV3zw3zsEzzkzy4DzwDzV3zz3zs0U1kzy080QDzt2073zzkzzkzy4DzwDzV3zz3zs0zzkzzUTzw8"
+Map09_2 := "|<>*133$30.kDzw307zs107zs027zsk27zsk27zwV27zzV27zz1040D3040C3m40A7y7zwD27zsD27zs107zs1UDzs1U"
+Map09_3 := "|<>*139$30.kDzw307zs107zs027zsE27zsE27zzk27zz127zz1040D0040Dkm400Ey7zsE27zsE27zs007zs1kDzw3U"
+Map09_4 := "|<>*134$30.kDzz107zy107zy127zw127zw127zw127zsV27zsV0408V0400Vm4000y7zk027zk027zzV07zzVkDzzVU"
+
+Map10_1 := "|<>*139$36.wS3zzssQ1zzkUM0zz00MEzy0UMEzz0sMEzzksMEzzksMEzzksMEU1ksMEU1ksMEU1ksMEzzksMEzzksMEzzksQ1zzksS3zzkU"
+Map10_2 := "|<>*136$39.wS3zzUT3UDzs1UM0zz08327zskUMEzz67327zwVsMEzzwD327zz1sMEU1sT3240C7sMEU1Uz327zwDsMEzz1z327zs1sQ1zz0D3kDzs1U"
+Map10_3 := "|<>*136$39.wS3zzUT3UDzs1UM0zz00327zsEUMEzz27327zzksMEzzsD327zz1sMEU1s73240DksMEU127327zsEsMEzz27327zs0sQ1zz0D3kTzw3U"
+Map10_4 := "|<>*142$39.wS3zzsD3UDzy1UM0zzk8327zw1UMEzzUD327zw1sMEzz4D327zsVsMEU14D32400VsMEU007327zk0sMEzy07327zzVsQ1zzwD3kTzzVU"
+
+
+Map_ChapterEvent5_1 := "|<>*140$57.3zwDzzzzzsTzVzzzzzV3zwDzzzzw8M1U6486103040EV0U00MEV2480EV3248EV0248MEV248ADV3248EV3UQ8MEV248S1V3248EV3s48MEV248QEV3248EV3W48MEU208QEV3240E13U40MEU708S1kU"
+
+Map_ChapterEvent5_2 := "|<>*138$57.0Tzzzzzzzs3zzzzzzzz0TzzzzzzzsS0M0kC0A33k1040k108S480U60800kV24EEV20248EW24800EV27UEV00S48Ek24803kV240EV38S480W208E3kV04EE1202480U20800EVq40RV082480U20C3zzz0Dzk3zzzzw3zz0zzU"
+Map_ChapterEvent5_3 := "|<>*142$65.kDzzzkzzzzz0Dzzz1zzzzw0Tzzy7zzzzsEs70848M70kUU6008EU40V1048EkU4803648EVV08EU7w8EV320DU0DsEV2648700TkV24A8M600UV248MEs4AV1248EkV48E2648EVV28EU0A0kV3040U20M1V260810C1s724C0M7Us"
+
+Map_ChapterEvent6_1 := "|<>*137$49.UQDzzzzs067zzzzw01zzzzzy0EV040s708EU2081U7sE1240k0w8EV28MEC48EV44A3248Ew270V248M10MEV2480U48EV24EE2480V0880240EV04033g8EU243V048E13zzU7zzzzzzs7zzzzU"
+
+Map_ChapterEvent6_2 := "|<>*136$45.kDz3zkzw0zsTy7z07zzzzzsEk8M66122120EU0EE8120E22108E20TkMEy4D3y721kUMTksM6612273UEs0EEsF24E26728EW00ksF24EU6720EU61ksM661U"
+
+Map_ChapterEvent6_3 := "|<>*148$68.0TzzzVzsTzzk1zzzsTy7zzw0Tzzzzzzzzz270w3VUM130kVU60ME20EU48M1U60EU4802248EU481240UU24M0y4FU0880Vy43V4M02608TVUME600VVa7sQ241VY8MEV24EV0ME2648FU48E6401V20ME261U00M1U640VUs10DUw3VUMMDUs"
+
+Map_ChapterEventglorySP1 := "|<>*153$26.UQ1y030D00E1024800V2407kVk0w8Q870730k3ks43w1V3z08Ezk24Dw013z00kzkkQDw8"
+Map_ChapterEventglorySP2 := "|<>*146$29.UQ1s60M1U40E108EV2A0V24M1y4AV0w8T30s0w70k3sT0UTVlV3z3V27wD24DkS08TU40kz0A1Vy0M"
+Map_ChapterEventglorySP3 := "|<>*149$29.UQ1s60M1U40E100EV240V2481y4Dk0w8S30s0w70k3s70UTw1V3w8127sE24DkU08TU00kz0A3Vz0s"
+
+Map_ChapterEventWinter1_1 := "|<>*140$59.31zzzzzzzy23zzzzzzzw4Dzzzzzzzs8M64A3U30sEU48E3040kV00EU6480U248V448EV048F288EU208EUDUEV040EV0Q0V2081V20k124As3261W208Ek64A3440EVUA0M6080V30M1kA0RV0C0s7Us0U3Uzzzy1zz0Dzzzzw7zz0zzU"
+Map_ChapterEventWinter1_2 := "|<>*145$40.zzzzkzzzzz33zzzzwDzz240UEU48E01200V24A8E248EkV08EV3240V24A8E248EkV08EV3240V24A8E248EkV00EV324012448EU48MEV2"
+Map_ChapterEventWinter1_3 := "|<>*142$25.07zzU3zzk1zzw30M71U81Uk00kM08MA24A63s631k31Uk1UkMEkMA8MQ60AC70673k2"
+
+Map_ChapterEventWinter2_1 := "|<>*155$45.3U7zVzzsM0zw8Tz13zzz3zw8EkA0A3V240U10A8EW48M0V20EV3240EVw8MEU243V3240kkA8MEU670V3260kW48MEk64EV3260kW48M0k640V10C0kkAAA3U"
+Map_ChapterEventWinter2_2 := "|<>*173$44.Uzzzzzzk7zzzzzw0zzzzzz4A0s70k13040k80EkV0A204A8EV0X13240EMUEkV04Dk4A8E13k1324Aks0EkV24CA4A8EV3X03240Es01k10AC0Uw0w73UDz3zzzzzzkzzzzzU"
+
+Map_ChapterEventWinter2_3 := "|<>*140$39.sTzzzzw1zzzzz07zzzzsEli76A221U8EUEE812422120EUTk8E003y72400TksEU03672400EEsEU02272400Eks0U00670A441kw1kkszztzzw"
+
+Map_ChapterEventWinter2_EX_Mode := "|<>*203$18.U00wDswDwsDysTzsTzsTzsTzsTTsSTkQzkkzkwzkyzkyzVzzVzzVzzVzzVzxVzt3zl3z1U"
+
+Map_ChapterEventWinter2_EX := "|<>*144$47.01W083s60240E3kA0080U3UMS0w7260kw1sC4A0Vs3kQ8M10k7Us0k20UD1k3U430S3U728S0w7264Ew0sC4A01s1kQ8E03k3UsEU00271kV300663V2600AC724A8"
+Map_ChapterEventWinter2_Supply := "|<>*166$17.1U8C0Es0bVFC0X8/a0r47C8DwETskxlUzX1w03k0700A08"
+
+
+
+Map_Special := "|<>*165$36.swTzs7UU7k07UU3k01UQDss1UwTs378U1s37MU1k60szzm00s03k00003sM10z3wM1sX7wM1sn7sn0sl7tX4sy7nbCsyDrzDU"
+
+
+theWay_TooFar := "|<>*149$5.n26Tzn000000000004Bk"
+
+GreenMine := "|<>*117$14.0T0AM231UkMA73Ulzbm"
+
+Step_3 := "|<>*131$26.zs07zy00TzU03zs00zzU07zz01zzk0Q0S0607U1U1s0M0S0607U1U1s0M0S0607U1U1s0M0S060701U000w000D0003s001z000zw00zzs1zs"
+NowScore2 := "|<>*156$25.zVvzzUwzzkzDzkTXzsTszsTw7wTz0wTzkATzwAMzk4k00LzVwDzky7zsT7zwDXzwDlzy7szz7wTz3wDz3y7z3z3z7z1yDk1zzzXzU"
+SPEvent := "|<>*162$16.tsw60E810UQ3VoE0F037ww0000060QNVlWD68wT3lwS"
+
+
+
+Global theWay_TooFar, GreenMine
+
+;//////////Event//////////
+DreamParty :="|<>*221$71.00000000000003Vk007000A43zzzU0C000w8Dzzz00Q00Tzkzzzy11zU1zzUwxw07zzs3zz0zzzUDzzs0761zzzUzzzs0Dw3zSD1zD3k0zs7zzw3kS3kDzk7zzU7Uw7Uzi01zw0D1sD7wQ1zzzkS3kSDzy3zzzkw7VsDzw7zU7VyD7k7zsDTzj1zzzU7rUTzzw1zzy03j0Tzzk0zzk0Dz0DES003s00yy0Rns007U07ts0nzU00D00T3kDzw000S00w7UTzU000w00kC0Tk0000s0000000000000001"
+
+global DreamParty
+
+;//////Matching Game/////////
+
+LittleChicken := "|<>*151$71.000E0003000S00zU0003s00w0Ty000U3zU3zzzsU01U7zzzzzymU0305zzzzy17007087zzw02C00C0M0TzU08A00Q0E07zU0kM00s0k0TzU10000U1U1zz0201k00107zz0/kAE0020Tzz0wENU1261zzz1D0Q00447zzz200006sMTzzzg000000Nzzzzk000000TzzzzU000000zzzzy0000000zzzzw0000001zzzzs0000001zzzzk0000001zzzyU0000003zzzx00000003zzzq00000003zz"
+
+InMatchingGame := "|<>*141$30.0000z00Dzz00zzy01zzw01zzw03zzs0Tzzs0zzzk0zzzUBzzz0Tzzw0TzzU0Tzy00zzw00Tzz00Dzzk07zzk03zzs03zzy01zzzU0zzzk0TzzU0Dzzz01zzzU"
+GoMatchingGame := "|<>*138$30.zUy3zz0S3zy0S7bw0TUDs0T0Dk0k0DU1U0Dc4U0DwAU0TyMk3zzkk3zvVs0zr3w0zq3w0zo3w0zUHw3zUlwDz0Vy7z1VU013100171000D3080z33ltzXb7zU"
+MatchingGameConfirm := "|<>*178$31.00L1sy7t00C3sU071sEy7VsM77kw8FjsTAMTwTwA9wCy68C6D007033VzVVVkzUkUsHkM0M0sAA00Q6673w333VyVVVkbkkksFsMMM0wAAA7y6673z033VbVVVklknkkEE"
+
+Global LittleChicken, InMatchingGame, GoMatchingGame, MatchingGameConfirm
+
+
+;/////////AutoBuild 每日自動建造/////////////
+Build := "|<>*129$42.Dk133zs7nkY0zkVwA08TVnk2067Xz00U13zz00M0lzz0060Uzz0010Vzz001UNzz001UNzz001UNzz001Utzz00DUtzz00DVtzz00Dbtzz00Dztzz00Dztzz00Dztzz00Dztzz00Dztzz00Dztzz00Dztzn00DzlrXk0Dz1X3s0Dw3lU"
+
+Page_Build := "|<>*146$18.z7zyDzwTzszzlzzVzz000U00lzzszzwTzyDzz7zzXzzlzzszU"
+Start_Building := "|<>*225$12.00U0k0s0w0y0z0zUzkzszwU"
+Build_Qty := "|<>*177$26.zz7zzzlzzzwTzzz7zzzlzzzwTzzz7zzzlzzzwTzzz7zzzlzw0000000000003zwTzzz7zzzlzzzwTzzz7zzzlzzzwTzzz7zzzlzy"
+Batch_Build := "|<>*184$24.zzwTkksTkksTUEsTUEsTUEsMkks0kk01kk03kk8TkksTk0sT00sT0EsT0ksTEksTkksTkksTkksTkk0Mkk0MUk00UkM11lw1U"
+Build_Confirm := "|<>*169$18.znzznzznzznzU01000z0zzGzyGTwnDwnDtnbnnnU00A0AznzznzznzzrzU"
+Get_Character := "|<>*190$39.XUsDzltw77zwDzUk000zw7vzk3zUzDy1zw7wTUTz0zkM7zsDz01zk1zw0070DzU01w3zk00TUTk7U7w7k7zVzrzzzzjU"
+Build_HaveNoEnough := "|<>*175$45.zzzzk00s001y007zwTznzyzzbzyTzrztzznzyzyDzyTzrzVzzk00zs9zy007y9XzztzzXCDzzDzstszttzwDDlzDDz3tz7ts0NzDxzD03ztzzltzzzDzy7DzztzzmNzzzDzwtDzztzz7UzzzDzly00ztzzTzkA"
+MainPage_Storage := "|<>*134$29.A00TsM0Tzkk3zzVU7zz30DyS00TQw00wNs01snk03XbU07bD00DAC00SMw00wns01tro03nnc07wD80D3kM0QS2Q1zUyQ3sD4S2/w0D3yA0Dzk0ADwk3w7UET"
+
+Storage_Rare := "|<>*151$19.zltk8MM60S7UT60300NU00ME0AA1y60y0030000140sWIQFCC87743XyDtzDk"
+Storage_EX := "|<>*144$19.zwzkCDk6AzXCDt03sU1UKAkD7lw08y0418m0YNwE0y80z7WTXl7m03V00lzyk"
+Storage_EX2 := "|<>*158$18.sszsszksslskVsl1s11s3ls7lkDl0Tl0zlszlszlsslsMls0lw1U"
+Storage_EX3 :="|<>*202$31.y3kT7y3sDUz1w7UDUy3UDUT1UDkDUUTk7k0Ts3s0Ts1w0zwUy1zwkS1zzsC0zzw6ETzy3sDzz1w7zzUy3zrkT1znsDUztw7kTsy3sDwT1w007Uy003kTU01sDk01wDy03k"
+Storage_EX4 := "|<>*197$38.k0y3zzwEDUzzyQ3sDzzD0y3zzzkDUzzzw3sDzzz0y3zzzkDUzzbw3sDztz0y3zyzkDUzzDw3sDznz0y1zkTkDU003w3s000z0y000DkDk007w7zzzzz7zzzzs"
+Descending := "|<>*117$14.0080707s3z1zwzU"
+Ascending := "|<>*114$15.zjzszy3zUDs0S01004"
+Storage_material := "|<>*122$22.wzyTnztzDzbwzyTnztk0000003nzly7z7sDsTUT1w8wbknaSHwNlDXbAwSRnXtzDTbwzyTnztzDs7wzky"
+Storage_Bulid := "|<>*156$18.000000w00zzVk1Vk1VllVllVllVllVllVllVk1Vk3VzzVzy1zy3U"
