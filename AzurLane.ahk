@@ -7715,7 +7715,7 @@ DwmCheckcolor(x, y, color="", Variation=15) {
 
 GdipImageSearch(byref x, byref y, imagePath = "img/picturehere.png",  Variation=100, direction = 1, x1=0, y1=0, x2=0, y2=0) {
 	sleep % DetectSleep
-	global pBitmapTime, pBitmap
+	static pBitmapTime, pBitmap
     if (Value_Pic!=0) {
 		Variation := if (Variation>=2) ? Variation+Value_Pic : Variation
 	}
@@ -7735,7 +7735,6 @@ GdipImageSearch(byref x, byref y, imagePath = "img/picturehere.png",  Variation=
 		pBitmapTime := 0
 	 }
     Gdip_DisposeImage(bmpNeedle)
-	sleep % DetectSleep
     return List
 }
 
