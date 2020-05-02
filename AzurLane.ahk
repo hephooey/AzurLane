@@ -842,6 +842,7 @@ if (Ldplayer3) {
 	Consolefile = NoxConsole.exe
 }
 Global EmulatorResolution_W, EmulatorResolution_H, Consolefile
+Global SirenCount := 0
 gui, PicShow:show, w925 h500 x%azur_x% y%azur_y% NA,  Azur Lane - %title%
 Gui Show, w925 h500 x%azur_x% y%azur_y%, Azur Lane - %title%
 WinSet, Transparent, 210, ahk_id %MainHwnd%
@@ -2346,6 +2347,16 @@ else if (Find(x, y, 164, 42, 264, 102, Formation_Upp) and Find(x, y, 0, 587, 86,
 		TargetFailed6 := 1
 		Plane_TargetFailed1 := 1
 	}
+	else if (SirenCount > 0)
+	{
+		TargetFailed1 := 1
+		TargetFailed2 := 1
+		TargetFailed3 := 1
+		TargetFailed4 := 1
+		TargetFailed5 := 1
+		TargetFailed6 := 1
+		Plane_TargetFailed1 := 1
+	}
 	else
 	{
 		TargetFailed1 := 0
@@ -3162,6 +3173,8 @@ else if (Find(x, y, 750, 682, 850, 742, Battle_Map))
 				}
 				if (Find(x, y, 0, 587, 86, 647, Formation_Tank))
 				{
+					Global SirenCount
+					SirenCount--
 					Guicontrol, ,starttext, % "目前狀態：編隊頁面，準備出擊！"
 					return
 				}
@@ -3268,6 +3281,29 @@ else if (Find(x, y, 750, 682, 850, 742, Battle_Map))
 				return
 			}
 		}
+		if (SirenCount > 0) {
+			TargetFailed1 := 1
+			TargetFailed2 := 1
+			TargetFailed3 := 1
+			TargetFailed4 := 1
+			Plane_TargetFailed1 := 1
+		}
+		else if (!BossactionTarget)
+		{
+			TargetFailed1 := 0
+			TargetFailed2 := 0
+			TargetFailed3 := 0
+			TargetFailed4 := 0
+			Plane_TargetFailed1 := 0
+		}
+		else if (BossFailed)
+		{
+			TargetFailed1 := 0
+			TargetFailed2 := 0
+			TargetFailed3 := 0
+			TargetFailed4 := 0
+			Plane_TargetFailed1 := 0
+		}
 		if (SearchLoopcount>=2 and Find(x, y, 750, 682, 850, 742, Battle_Map))
 		{
 			if (SearchFailedMessage<1)
@@ -3360,7 +3396,14 @@ else if (Find(x, y, 750, 682, 850, 742, Battle_Map))
 					MoveFailed++
 				}
 			}
-			if (!BossactionTarget)
+			if (SirenCount > 0) {
+				TargetFailed1 := 1
+				TargetFailed2 := 1
+				TargetFailed3 := 1
+				TargetFailed4 := 1
+				Plane_TargetFailed1 := 1
+			}
+			else if (!BossactionTarget)
 			{
 				TargetFailed1 := 0
 				TargetFailed2 := 0
@@ -4412,6 +4455,10 @@ else if (Find(x, y, 95, 34, 195, 94, Weigh_Anchor)) ;在出擊選擇關卡的頁
 			if (Find(x, y, 338, 305, 418, 333, Map_ChapterEventInk1_1))
 			{
 				C_Click(x, y)
+				if (AnchorMode="普通")
+					Global SirenCount := 1
+				else
+					Global SirenCount := 2
 			}
 		}
 		else if (AnchorChapter="墨染1" and AnchorChapter2=2)
@@ -4419,6 +4466,10 @@ else if (Find(x, y, 95, 34, 195, 94, Weigh_Anchor)) ;在出擊選擇關卡的頁
 			if (Find(x, y, 436, 524, 480, 546, Map_ChapterEventInk1_2))
 			{
 				C_Click(x, y)
+				if (AnchorMode="普通")
+					Global SirenCount := 1
+				else
+					Global SirenCount := 2
 			}
 		}
 		else if (AnchorChapter="墨染1" and AnchorChapter2=3)
@@ -4426,6 +4477,10 @@ else if (Find(x, y, 95, 34, 195, 94, Weigh_Anchor)) ;在出擊選擇關卡的頁
 			if (Find(x, y, 974, 572, 1054, 598, Map_ChapterEventInk1_3))
 			{
 				C_Click(x, y)
+				if (AnchorMode="普通")
+					Global SirenCount := 1
+				else
+					Global SirenCount := 2
 			}
 		}
 		else if (AnchorChapter="墨染1" and AnchorChapter2=4)
@@ -4433,6 +4488,10 @@ else if (Find(x, y, 95, 34, 195, 94, Weigh_Anchor)) ;在出擊選擇關卡的頁
 			if (Find(x, y, 857, 344, 943, 370, Map_ChapterEventInk1_4))
 			{
 				C_Click(x, y)
+				if (AnchorMode="普通")
+					Global SirenCount := 1
+				else
+					Global SirenCount := 2
 			}
 		}
 		else if (AnchorChapter="墨染2" and AnchorChapter2=1)
@@ -4440,6 +4499,10 @@ else if (Find(x, y, 95, 34, 195, 94, Weigh_Anchor)) ;在出擊選擇關卡的頁
 			if (Find(x, y, 422, 499, 464, 523, Map_ChapterEventInk2_1))
 			{
 				C_Click(x, y)
+				if (AnchorMode="普通")
+					Global SirenCount := 1
+				else
+					Global SirenCount := 3
 			}
 		}
 		else if (AnchorChapter="墨染2" and AnchorChapter2=2)
@@ -4447,6 +4510,10 @@ else if (Find(x, y, 95, 34, 195, 94, Weigh_Anchor)) ;在出擊選擇關卡的頁
 			if (Find(x, y, 914, 423, 992, 445, Map_ChapterEventInk2_2))
 			{
 				C_Click(x, y)
+				if (AnchorMode="普通")
+					Global SirenCount := 2
+				else
+					Global SirenCount := 3
 			}
 		}
 	}
