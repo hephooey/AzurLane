@@ -174,7 +174,7 @@ Tab1_Y += 5
 Gui, Add, text, x180 y%Tab1_Y% w20 h20  , 第
 Tab1_Y -= 5
 
-AnchorChapterList = 1|2|3|4|5|6|7|8|9|10|凜冬1|凜冬2|紅染1|紅染2|希望1|異色1|異色2|墜落1|墜落2|光榮1|
+AnchorChapterList = 1|2|3|4|5|6|7|8|9|10|凜冬1|凜冬2|紅染1|紅染2|希望1|異色1|異色2|墜落1|墜落2|光榮1|墨染1|墨染2|
 StringReplace, AnchorChapterListSR, AnchorChapterList,%CH_AnchorChapter%,%CH_AnchorChapter%|
 Gui, Add, DropDownList,  x200 y%Tab1_Y% w60 gAnchorsettings vAnchorChapter, %AnchorChapterListSR%
 
@@ -3661,8 +3661,10 @@ else if (Find(x, y, 95, 34, 195, 94, Weigh_Anchor)) ;在出擊選擇關卡的頁
 	ChapterEventglory := Find(x, y, 287, 319, 387, 374, Map_ChapterEventglorySP1) ;21 光榮Sp
 	ChapterEventWinter1 := Find(x, y, 321, 303, 421, 358, Map_ChapterEventWinter1_1) ;22 凜冬1
 	ChapterEventWinter2 := Find(x, y, 338, 505, 438, 560, Map_ChapterEventWinter2_1)  ;23 凜冬23
+	ChapterEventInk1:= Find(x, y, 338, 305, 418, 333, Map_ChapterEventInk1_1)  ;24 墨染1
+	ChapterEventInk2:= Find(x, y, 422, 499, 464, 523, Map_ChapterEventInk2_1)  ;25 墨染2
 	ChapterFailed := 1
-	array := [Chapter1, Chapter2,Chapter3, Chapter4, Chapter5, Chapter6, Chapter7, Chapter8, Chapter9, Chapter10, Chapter11, Chapter12, Chapter13, ChapterEvent1,ChapterEvent2, ChapterEventSP, ChapterEvent3, ChapterEvent4, ChapterEvent5, ChapterEvent6, ChapterEventglory,  ChapterEventWinter1, ChapterEventWinter2, ChapterFailed]
+	array := [Chapter1, Chapter2,Chapter3, Chapter4, Chapter5, Chapter6, Chapter7, Chapter8, Chapter9, Chapter10, Chapter11, Chapter12, Chapter13, ChapterEvent1,ChapterEvent2, ChapterEventSP, ChapterEvent3, ChapterEvent4, ChapterEvent5, ChapterEvent6, ChapterEventglory,  ChapterEventWinter1, ChapterEventWinter2, ChapterEventInk1, ChapterEventInk2, ChapterFailed]
 	Chapter := 0
 	Loop % array.MaxIndex()
 	{
@@ -3678,10 +3680,11 @@ else if (Find(x, y, 95, 34, 195, 94, Weigh_Anchor)) ;在出擊選擇關卡的頁
 	{
 		;~ LogShow("畫面已經在主線地圖") 
 	}
-	else if (IndexValue(Chapter, 14, 15, 17, 18, 19, 20, 22, 23)) 
+	else if (IndexValue(Chapter, 14, 15, 17, 18, 19, 20, 22, 23, 24, 25)) 
 	and ((AnchorChapter="紅染1" or AnchorChapter="紅染2") 
 	or (AnchorChapter="異色1" or AnchorChapter="異色2") 
 	or (AnchorChapter="墜落1" or AnchorChapter="墜落2")
+	or (AnchorChapter="墨染1" or AnchorChapter="墨染2")
 	or (AnchorChapter="凜冬1" or AnchorChapter="凜冬2"))
 	{
 		BacktoNormalMap++
@@ -3698,7 +3701,7 @@ else if (Find(x, y, 95, 34, 195, 94, Weigh_Anchor)) ;在出擊選擇關卡的頁
 	{
 		;~ LogShow("畫面已經在希望1地圖") 
 	}
-	else if ((IndexValue(Chapter, 14, 15, 16, 17, 18, 19, 20, 22, 23)) and ((OperationSub and OperationDone<1) or (DailyGoalSub and DailyDone<1)))
+	else if ((IndexValue(Chapter, 14, 15, 16, 17, 18, 19, 20, 22, 23, 24, 25)) and ((OperationSub and OperationDone<1) or (DailyGoalSub and DailyDone<1)))
 	{
 		if (OperationSub and OperationDone<1)
 			text1=每日
@@ -3709,7 +3712,7 @@ else if (Find(x, y, 95, 34, 195, 94, Weigh_Anchor)) ;在出擊選擇關卡的頁
 		C_Click(60, 90)
 		return
 	}
-	else if (IndexValue(Chapter, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23) and (AnchorChapter>=1 and AnchorChapter<=14))
+	else if (IndexValue(Chapter, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25) and (AnchorChapter>=1 and AnchorChapter<=14))
 	{
 		LogShow("位於活動地圖，返回主線。")
 		C_Click(60, 90)
@@ -4383,7 +4386,71 @@ else if (Find(x, y, 95, 34, 195, 94, Weigh_Anchor)) ;在出擊選擇關卡的頁
 			}
 		}
 	}
-	else 
+	else if (AnchorChapter="墨染1" or AnchorChapter="墨染2")
+	{
+		SelectMode() 
+		if (Find(x, y, 1137, 242, 1237, 297, Map_Special) and (AnchorChapter="墨染1" or AnchorChapter="墨染2")) ;如果在主線，則進入凜冬關卡
+		{
+			C_Click(1201, 226) 
+			sleep 2000
+			StopBattleTimeCount-- ;每出擊N場修及的判斷次數
+		}
+		else if (ChapterEventInk1 and AnchorChapter="墨染2") ;
+		{
+			C_Click(1223, 411)
+			sleep 2000
+			StopBattleTimeCount-- ;每出擊N場修及的判斷次數
+		}
+		else if (ChapterEventInk2 and AnchorChapter="墨染1") ;
+		{
+			C_Click(48, 409)
+			sleep 2000
+			StopBattleTimeCount-- ;每出擊N場修及的判斷次數
+		}
+		else if (AnchorChapter="墨染1" and AnchorChapter2=1)
+		{
+			if (Find(x, y, 338, 305, 418, 333, Map_ChapterEventInk1_1))
+			{
+				C_Click(x, y)
+			}
+		}
+		else if (AnchorChapter="墨染1" and AnchorChapter2=2)
+		{
+			if (Find(x, y, 436, 524, 480, 546, Map_ChapterEventInk1_2))
+			{
+				C_Click(x, y)
+			}
+		}
+		else if (AnchorChapter="墨染1" and AnchorChapter2=3)
+		{
+			if (Find(x, y, 974, 572, 1054, 598, Map_ChapterEventInk1_3))
+			{
+				C_Click(x, y)
+			}
+		}
+		else if (AnchorChapter="墨染1" and AnchorChapter2=4)
+		{
+			if (Find(x, y, 857, 344, 943, 370, Map_ChapterEventInk1_4))
+			{
+				C_Click(x, y)
+			}
+		}
+		else if (AnchorChapter="墨染2" and AnchorChapter2=1)
+		{
+			if (Find(x, y, 422, 499, 464, 523, Map_ChapterEventInk2_1))
+			{
+				C_Click(x, y)
+			}
+		}
+		else if (AnchorChapter="墨染2" and AnchorChapter2=2)
+		{
+			if (Find(x, y, 914, 423, 992, 445, Map_ChapterEventInk2_2))
+			{
+				C_Click(x, y)
+			}
+		}
+	}
+	else
 	{
 		LogShow("選擇關卡時發生錯誤！")
 		sleep 2000
@@ -8296,7 +8363,7 @@ SelectMode() {
 
 FindWay(x, y) {
 	global
-	if (AnchorChapter="墜落1" or AnchorChapter="墜落2" or AnchorChapter="凜冬1" or AnchorChapter="凜冬2") {
+	if (AnchorChapter="墜落1" or AnchorChapter="墜落2" or AnchorChapter="凜冬1" or AnchorChapter="凜冬2" or AnchorChapter="墨染1" or AnchorChapter="墨染2" ) {
 		if (Find(fn, fm, 439, 328, 539, 388, theWay_TooFar)) {
 			LogShow("前往敵方艦隊的路途過遠！")
 			IsDetect := 1
