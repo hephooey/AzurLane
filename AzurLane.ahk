@@ -6507,7 +6507,7 @@ DelegationMission2()
 		}
 	}
 	;~ LogShow("成功進入")
-	if (DwmCheckcolor(1138, 338, 4870499) or Find(x, y, 729, 154, 829, 214, Ico_Oil) or Find(x, y, 1060, 151, 1160, 211, Ico_Gem)) ;如果耗油是個位數 或 出現寶石 或 出現油田
+	if (DwmCheckcolor(1138, 338, 4870499) or Find(x, y, 729, 154, 829, 214, Ico_Oil) or Find(x, y, 1060, 151, 1160, 211, Ico_Gem) or Find(x, y, 1060,137,1160,173, Ico_Crystal)) ;如果耗油是個位數 或 出現寶石 或 出現油田
 	{
 		C_Click(931, 380)
 		sleep 300

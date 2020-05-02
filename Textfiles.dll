@@ -341,12 +341,13 @@ Delegation_Empty := "|<>*155$65.UTXsz0Tk3tsTz7lySTwztkzy73wyztzn9zwC7txznzmE7tRD
 
 BTN_Advice := "|<>*210$32.w7kMMz0A7w7k0001U00sTz1sC7zkS3Vzw70s/z00C0Dk0001w60E9s1sC7y0S3UzU7UsTs1sC6T0S3U3w7U00T1sA3zkS3Vzw7UsTz1sC7wUS3VXU7UsMQ1s003Uy3zzsDUzzs"
 Ico_Oil := "|<>*135$20.zzTzzXzzMTzX7zsEa6600kUE4AAtVDCMTl7Dy1zzUTzyTzy"
+Ico_Crystal := "|<>*164$71.00I0Dz0sTw0000Q0Lstq1y0000M1y7nzkTk000Q7k3bzs1z0008y01Dz00T000Tk00Ds037000y000S00Ta007U000U01wY00Q000000Dbc07U000001wzE0w0000007XyU7U000000wTx0s0000007lzw70000000yDzss0000007VzznY000000QDzzaTU000000jzzADw000003zzyP3zU00002TzwrUzwU001UzzwrsDz0000Wvztjw7c0000XzznTz1k00001zzazzU000001zz4zzM000006zz"
 Ico_Gem := "|<>*124$47.0000010000000M10000000zk00000Dzk00603zzU0000zzz00003zzz02U01zzwzw0tlzzs00TXszzc07z7wzyS1zyTwzzy7zszzTzw3znzyzzsXzjztzzl1zzsDzzU0zs0zzy00w01zzwE1UU1zzsc0A03zzXU3s17zs007w2Tzc00Tw0zySA0zwHzsz41zw7zl"
 Party_OK := "|<>*110$24.zwDzzwDzzwDzzwDzzwDzzwDzzwDzzwDzzwDz0000000000000000zwDzzwDzzwDzzwDzzwDzzwDzzwDzzwDzzwDzU"
 Spend_Oil_Confirm := "|<>*185$31.xzkTVw0000MDzzs07zzw43zzsC3zzsD1zzs7l0003zzsDzzzw7zzzy3zzwD1xzy1UwTz1kQ3zUs01zkw7zzsS3zzsD1zzw3Uzzy0kTzy60Dzz7U007Xk003Xw003XzU01k"
 
 
-global Delegation_Touch, Delegation_WaitingforDelegation, Delegation_Inprogress, NoneDelegation, Delegation_urgent, Delegation_Empty, BTN_Advice, Ico_Oil, Ico_Gem, Party_OK, Spend_Oil_Confirm
+global Delegation_Touch, Delegation_WaitingforDelegation, Delegation_Inprogress, NoneDelegation, Delegation_urgent, Delegation_Empty, BTN_Advice, Ico_Oil, Ico_Crystal, Ico_Gem, Party_OK, Spend_Oil_Confirm
 
 
 ;/////////Message///////////
