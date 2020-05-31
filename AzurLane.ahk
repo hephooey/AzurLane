@@ -174,7 +174,7 @@ Tab1_Y += 5
 Gui, Add, text, x180 y%Tab1_Y% w20 h20  , 第
 Tab1_Y -= 5
 
-AnchorChapterList = 1|2|3|4|5|6|7|8|9|10|凜冬1|凜冬2|紅染1|紅染2|希望1|異色1|異色2|墜落1|墜落2|光榮1|墨染1|墨染2|
+AnchorChapterList = 1|2|3|4|5|6|7|8|9|10|凜冬1|凜冬2|紅染1|紅染2|希望1|異色1|異色2|墜落1|墜落2|光榮1|墨染1|墨染2|鳶尾1|鳶尾2|
 StringReplace, AnchorChapterListSR, AnchorChapterList,%CH_AnchorChapter%,%CH_AnchorChapter%|
 Gui, Add, DropDownList,  x200 y%Tab1_Y% w60 gAnchorsettings vAnchorChapter, %AnchorChapterListSR%
 
@@ -2850,6 +2850,123 @@ else if (Find(x, y, 750, 682, 850, 742, Battle_Map))
 								sleep 300
 							}
 						}
+						if (AnchorChapter="紅染2" and AnchorChapter2="3") ;直接滑動到BOSS可能的出生點
+						{
+							sleep 1000
+							Loop, 2
+							{
+								sleep 500
+								Swipe(607, 200, 607, 661)
+							}
+							if (GdipImageSearch(x, y, BOSSICO, 15, SearchDirection, MapX1, MapY1, MapX2, MapY2) and BossFailed<1)
+							{
+								LogShow("發現：最終ＢＯＳＳ！X : " x " Y: " y )
+								C_Click(x, y)
+								BossGetpixel := dwmgetpixel(x, y)
+								Loop, 10
+								{
+									if (BossGetpixel!=dwmgetpixel(x, y))
+									{
+										sleep 1500
+										Break
+									}
+									sleep 1000
+								}
+								return
+							}
+						}
+						else if (AnchorChapter="墨染2" and AnchorChapter2="2") ;直接滑動到BOSS可能的出生點
+						{
+							sleep 1000
+							Loop, 2
+							{
+								sleep 500
+								Swipe(1050, 640, 200, 200)
+							}
+							if (GdipImageSearch(x, y, BOSSICO, 15, SearchDirection, MapX1, MapY1, MapX2, MapY2) and BossFailed<1)
+							{
+								LogShow("發現：最終ＢＯＳＳ！X : " x " Y: " y )
+								C_Click(x, y)
+								BossGetpixel := dwmgetpixel(x, y)
+								Loop, 10
+								{
+									if (BossGetpixel!=dwmgetpixel(x, y))
+									{
+										sleep 1500
+										Break
+									}
+									sleep 1000
+								}
+								return
+							}
+						}
+						else if (AnchorChapter="鳶尾2" and AnchorChapter2="2") ;直接滑動到BOSS可能的出生點
+						{
+							sleep 1000
+							Loop, 2
+							{
+								Swipe(1000, 443, 300, 443)
+								sleep 300
+							}
+							if (GdipImageSearch(x, y, BOSSICO, 15, SearchDirection, MapX1, MapY1, MapX2, MapY2) and BossFailed<1)
+							{
+								LogShow("[鳶尾0]發現：最終ＢＯＳＳ！X : " x " Y: " y )
+								C_Click(x, y)
+								BossGetpixel := dwmgetpixel(x, y)
+								Loop, 10
+								{
+									if (BossGetpixel!=dwmgetpixel(x, y))
+									{
+										sleep 1500
+										Break
+									}
+									sleep 1000
+								}
+								return
+							}
+							Loop, 2
+							{
+								Swipe(607, 661, 607, 200)
+								sleep 300
+							}
+							if (GdipImageSearch(x, y, BOSSICO, 15, SearchDirection, MapX1, MapY1, MapX2, MapY2) and BossFailed<1)
+							{
+								LogShow("[鳶尾1]發現：最終ＢＯＳＳ！X : " x " Y: " y )
+								C_Click(x, y)
+								BossGetpixel := dwmgetpixel(x, y)
+								Loop, 10
+								{
+									if (BossGetpixel!=dwmgetpixel(x, y))
+									{
+										sleep 1500
+										Break
+									}
+									sleep 1000
+								}
+								return
+							}
+							Loop, 2
+							{
+								Swipe(607, 200, 607, 661)
+								sleep 300
+							}
+							if (GdipImageSearch(x, y, BOSSICO, 15, SearchDirection, MapX1, MapY1, MapX2, MapY2) and BossFailed<1)
+							{
+								LogShow("[鳶尾2]發現：最終ＢＯＳＳ！X : " x " Y: " y )
+								C_Click(x, y)
+								BossGetpixel := dwmgetpixel(x, y)
+								Loop, 10
+								{
+									if (BossGetpixel!=dwmgetpixel(x, y))
+									{
+										sleep 1500
+										Break
+									}
+									sleep 1000
+								}
+								return
+							}
+						}
 						if (AnchorChapter="墜落1" and AnchorChapter2="1") ;直接滑動到BOSS可能的出生點
 						{
 							sleep 1000
@@ -3714,8 +3831,10 @@ else if (Find(x, y, 95, 34, 195, 94, Weigh_Anchor)) ;在出擊選擇關卡的頁
 	ChapterEventWinter2 := Find(x, y, 338, 505, 438, 560, Map_ChapterEventWinter2_1)  ;23 凜冬23
 	ChapterEventInk1:= Find(x, y, 338, 305, 418, 333, Map_ChapterEventInk1_1)  ;24 墨染1
 	ChapterEventInk2:= Find(x, y, 422, 499, 464, 523, Map_ChapterEventInk2_1)  ;25 墨染2
+	ChapterEventIris1:= Find(x, y, 288, 277, 370, 303, Map_ChapterEventIris1_1)  ;26 鳶尾1
+	ChapterEventIris2:= Find(x, y, 375, 289, 427, 321, Map_ChapterEventIris2_1)  ;27 鳶尾2
 	ChapterFailed := 1
-	array := [Chapter1, Chapter2,Chapter3, Chapter4, Chapter5, Chapter6, Chapter7, Chapter8, Chapter9, Chapter10, Chapter11, Chapter12, Chapter13, ChapterEvent1,ChapterEvent2, ChapterEventSP, ChapterEvent3, ChapterEvent4, ChapterEvent5, ChapterEvent6, ChapterEventglory,  ChapterEventWinter1, ChapterEventWinter2, ChapterEventInk1, ChapterEventInk2, ChapterFailed]
+	array := [Chapter1, Chapter2,Chapter3, Chapter4, Chapter5, Chapter6, Chapter7, Chapter8, Chapter9, Chapter10, Chapter11, Chapter12, Chapter13, ChapterEvent1,ChapterEvent2, ChapterEventSP, ChapterEvent3, ChapterEvent4, ChapterEvent5, ChapterEvent6, ChapterEventglory,  ChapterEventWinter1, ChapterEventWinter2, ChapterEventInk1, ChapterEventInk2, ChapterEventIris1, ChapterEventIris2, ChapterFailed]
 	Chapter := 0
 	Loop % array.MaxIndex()
 	{
@@ -3731,11 +3850,12 @@ else if (Find(x, y, 95, 34, 195, 94, Weigh_Anchor)) ;在出擊選擇關卡的頁
 	{
 		;~ LogShow("畫面已經在主線地圖") 
 	}
-	else if (IndexValue(Chapter, 14, 15, 17, 18, 19, 20, 22, 23, 24, 25)) 
+	else if (IndexValue(Chapter, 14, 15, 17, 18, 19, 20, 22, 23, 24, 25, 26, 27)) 
 	and ((AnchorChapter="紅染1" or AnchorChapter="紅染2") 
 	or (AnchorChapter="異色1" or AnchorChapter="異色2") 
 	or (AnchorChapter="墜落1" or AnchorChapter="墜落2")
 	or (AnchorChapter="墨染1" or AnchorChapter="墨染2")
+	or (AnchorChapter="鳶尾1" or AnchorChapter="鳶尾2")
 	or (AnchorChapter="凜冬1" or AnchorChapter="凜冬2"))
 	{
 		BacktoNormalMap++
@@ -3763,7 +3883,7 @@ else if (Find(x, y, 95, 34, 195, 94, Weigh_Anchor)) ;在出擊選擇關卡的頁
 		C_Click(60, 90)
 		return
 	}
-	else if (IndexValue(Chapter, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25) and (AnchorChapter>=1 and AnchorChapter<=14))
+	else if (IndexValue(Chapter, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27) and (AnchorChapter>=1 and AnchorChapter<=14))
 	{
 		LogShow("位於活動地圖，返回主線。")
 		C_Click(60, 90)
@@ -4526,6 +4646,107 @@ else if (Find(x, y, 95, 34, 195, 94, Weigh_Anchor)) ;在出擊選擇關卡的頁
 		else if (AnchorChapter="墨染2" and AnchorChapter2=2)
 		{
 			if (Find(x, y, 914, 423, 992, 445, Map_ChapterEventInk2_2))
+			{
+				C_Click(x, y)
+				Global side := 8
+				if (Ship_TargetElite and Ship_TargetE_S=1) {
+					if (AnchorMode="普通")
+						Global SirenCount := 2
+					else
+						Global SirenCount := 3
+				}
+			}
+		}
+	}
+	else if (AnchorChapter="鳶尾1" or AnchorChapter="鳶尾2")
+	{
+		SelectMode() 
+		if (Find(x, y, 1167, 259, 1245, 287, Map_Special) and (AnchorChapter="鳶尾1" or AnchorChapter="鳶尾2")) ;如果在主線，則進入凜冬關卡
+		{
+			C_Click(1201, 226) 
+			sleep 2000
+			StopBattleTimeCount-- ;每出擊N場修及的判斷次數
+		}
+		else if (ChapterEventIris1 and AnchorChapter="2") ;
+		{
+			C_Click(1223, 411)
+			sleep 2000
+			StopBattleTimeCount-- ;每出擊N場修及的判斷次數
+		}
+		else if (ChapterEventIris2 and AnchorChapter="1") ;
+		{
+			C_Click(48, 409)
+			sleep 2000
+			StopBattleTimeCount-- ;每出擊N場修及的判斷次數
+		}
+		else if (AnchorChapter="鳶尾1" and AnchorChapter2=1)
+		{
+			if (Find(x, y, 288, 277, 370, 303, Map_ChapterEventIris1_1))
+			{
+				C_Click(x, y)
+				if (Ship_TargetElite and Ship_TargetE_S=1) {
+					if (AnchorMode="普通")
+						Global SirenCount := 1
+					else
+						Global SirenCount := 2
+				}
+			}
+		}
+		else if (AnchorChapter="鳶尾1" and AnchorChapter2=2)
+		{
+			if (Find(x, y, 872, 296, 922, 328, Map_ChapterEventIris1_2))
+			{
+				C_Click(x, y)
+				if (Ship_TargetElite and Ship_TargetE_S=1) {
+					if (AnchorMode="普通")
+						Global SirenCount := 1
+					else
+						Global SirenCount := 2
+				}
+			}
+		}
+		else if (AnchorChapter="鳶尾1" and AnchorChapter2=3)
+		{
+			if (Find(x, y, 568, 496, 658, 526, Map_ChapterEventIris1_3))
+			{
+				C_Click(x, y)
+				if (Ship_TargetElite and Ship_TargetE_S=1) {
+					if (AnchorMode="普通")
+						Global SirenCount := 1
+					else
+						Global SirenCount := 2
+				}
+			}
+		}
+		else if (AnchorChapter="鳶尾2" and AnchorChapter2=1)
+		{
+			if (Find(x, y, 375, 289, 427, 321, Map_ChapterEventIris2_1))
+			{
+				C_Click(x, y)
+				if (Ship_TargetElite and Ship_TargetE_S=1) {
+					if (AnchorMode="普通")
+						Global SirenCount := 1
+					else
+						Global SirenCount := 2
+				}
+			}
+		}
+		else if (AnchorChapter="鳶尾2" and AnchorChapter2=2)
+		{
+			if (Find(x, y, 495, 595, 597, 617, Map_ChapterEventIris2_2))
+			{
+				C_Click(x, y)
+				if (Ship_TargetElite and Ship_TargetE_S=1) {
+					if (AnchorMode="普通")
+						Global SirenCount := 2
+					else
+						Global SirenCount := 3
+				}
+			}
+		}
+		else if (AnchorChapter="鳶尾2" and AnchorChapter2=3)
+		{
+			if (Find(x, y, 803, 422, 887, 448, Map_ChapterEventIris2_3))
 			{
 				C_Click(x, y)
 				Global side := 8
@@ -8451,7 +8672,7 @@ SelectMode() {
 
 FindWay(x, y) {
 	global
-	if (AnchorChapter="墜落1" or AnchorChapter="墜落2" or AnchorChapter="凜冬1" or AnchorChapter="凜冬2" or AnchorChapter="墨染1" or AnchorChapter="墨染2" ) {
+	if (AnchorChapter="墜落1" or AnchorChapter="墜落2" or AnchorChapter="凜冬1" or AnchorChapter="凜冬2" or AnchorChapter="墨染1" or AnchorChapter="墨染2" or AnchorChapter="鳶尾1" or AnchorChapter="鳶尾2") {
 		if (Find(fn, fm, 439, 328, 539, 388, theWay_TooFar)) {
 			LogShow("前往敵方艦隊的路途過遠！")
 			IsDetect := 1
