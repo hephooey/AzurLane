@@ -2679,7 +2679,8 @@ else if (Find(x, y, 750, 682, 850, 742, Battle_Map))
 					if (Find(n, m, 750, 682, 850, 742, Battle_Map)) ;如果在限時(無限時)地圖
 					{
 						C_Click(xx, yy)
-						sleep 300
+						sleep 400
+						FindWay(xx, yy)
 						if (Find(n, m, 495, 330, 530, 390, "|<>*200$8.zyT3kyTzzyT3kwD3kwD3kwD3kwD3kzy"))
 						{
 							questFailed++
