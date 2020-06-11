@@ -174,7 +174,8 @@ Tab1_Y += 5
 Gui, Add, text, x180 y%Tab1_Y% w20 h20  , 第
 Tab1_Y -= 5
 
-AnchorChapterList = 1|2|3|4|5|6|7|8|9|10|凜冬1|凜冬2|紅染1|紅染2|希望1|異色1|異色2|墜落1|墜落2|光榮1|墨染1|墨染2|鳶尾1|鳶尾2|
+AnchorChapterList = 1|2|3|4|5|6|7|8|9|10|凜冬1|凜冬2|紅染1|紅染2|希望1|異色1|異色2|墜落1|墜落2|光榮1|墨染1|墨染2|鳶尾1|鳶尾2|施佩|
+
 StringReplace, AnchorChapterListSR, AnchorChapterList,%CH_AnchorChapter%,%CH_AnchorChapter%|
 Gui, Add, DropDownList,  x200 y%Tab1_Y% w60 gAnchorsettings vAnchorChapter, %AnchorChapterListSR%
 
@@ -3834,8 +3835,9 @@ else if (Find(x, y, 95, 34, 195, 94, Weigh_Anchor)) ;在出擊選擇關卡的頁
 	ChapterEventInk2:= Find(x, y, 422, 499, 464, 523, Map_ChapterEventInk2_1)  ;25 墨染2
 	ChapterEventIris1:= Find(x, y, 288, 277, 370, 303, Map_ChapterEventIris1_1)  ;26 鳶尾1
 	ChapterEventIris2:= Find(x, y, 375, 289, 427, 321, Map_ChapterEventIris2_1)  ;27 鳶尾2
+	ChapterEventSpee:=Find(x, y, 997, 362, 1043, 394, Map_ChapterEventSpee_1) ;28 施佩
 	ChapterFailed := 1
-	array := [Chapter1, Chapter2,Chapter3, Chapter4, Chapter5, Chapter6, Chapter7, Chapter8, Chapter9, Chapter10, Chapter11, Chapter12, Chapter13, ChapterEvent1,ChapterEvent2, ChapterEventSP, ChapterEvent3, ChapterEvent4, ChapterEvent5, ChapterEvent6, ChapterEventglory,  ChapterEventWinter1, ChapterEventWinter2, ChapterEventInk1, ChapterEventInk2, ChapterEventIris1, ChapterEventIris2, ChapterFailed]
+	array := [Chapter1, Chapter2,Chapter3, Chapter4, Chapter5, Chapter6, Chapter7, Chapter8, Chapter9, Chapter10, Chapter11, Chapter12, Chapter13, ChapterEvent1,ChapterEvent2, ChapterEventSP, ChapterEvent3, ChapterEvent4, ChapterEvent5, ChapterEvent6, ChapterEventglory,  ChapterEventWinter1, ChapterEventWinter2, ChapterEventInk1, ChapterEventInk2, ChapterEventIris1, ChapterEventIris2, ChapterEventSpee, ChapterFailed]
 	Chapter := 0
 	Loop % array.MaxIndex()
 	{
@@ -3851,12 +3853,13 @@ else if (Find(x, y, 95, 34, 195, 94, Weigh_Anchor)) ;在出擊選擇關卡的頁
 	{
 		;~ LogShow("畫面已經在主線地圖") 
 	}
-	else if (IndexValue(Chapter, 14, 15, 17, 18, 19, 20, 22, 23, 24, 25, 26, 27)) 
+	else if (IndexValue(Chapter, 14, 15, 17, 18, 19, 20, 22, 23, 24, 25, 26, 27, 28))
 	and ((AnchorChapter="紅染1" or AnchorChapter="紅染2") 
 	or (AnchorChapter="異色1" or AnchorChapter="異色2") 
 	or (AnchorChapter="墜落1" or AnchorChapter="墜落2")
 	or (AnchorChapter="墨染1" or AnchorChapter="墨染2")
 	or (AnchorChapter="鳶尾1" or AnchorChapter="鳶尾2")
+	or (AnchorChapter="施佩")
 	or (AnchorChapter="凜冬1" or AnchorChapter="凜冬2"))
 	{
 		BacktoNormalMap++
@@ -4656,6 +4659,36 @@ else if (Find(x, y, 95, 34, 195, 94, Weigh_Anchor)) ;在出擊選擇關卡的頁
 					else
 						Global SirenCount := 3
 				}
+			}
+		}
+	}
+	else if (AnchorChapter="施佩")
+	{
+		if (Find(x, y, 1167, 259, 1245, 287, Map_Special)) ;如果在主線，則進入凜冬關卡
+		{
+			C_Click(1201, 226)
+			sleep 2000
+			StopBattleTimeCount-- ;每出擊N場修及的判斷次數
+		}
+		else if (AnchorChapter="施佩" and AnchorChapter2=1)
+		{
+			if (Find(x, y, 997, 362, 1043, 394, Map_ChapterEventSpee_1))
+			{
+				C_Click(x, y)
+			}
+		}
+		else if (AnchorChapter="施佩" and AnchorChapter2=2)
+		{
+			if (Find(x, y, 664, 592, 712, 612, Map_ChapterEventSpee_2))
+			{
+				C_Click(x, y)
+			}
+		}
+		else if (AnchorChapter="施佩" and AnchorChapter2=3)
+		{
+			if (Find(x, y, 478, 307, 520, 331, Map_ChapterEventSpee_3))
+			{
+				C_Click(x, y)
 			}
 		}
 	}
